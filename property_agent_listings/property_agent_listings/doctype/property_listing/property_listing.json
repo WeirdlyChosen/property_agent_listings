@@ -1,0 +1,730 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:id",
+ "creation": "2025-09-10 12:49:05.349920",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "detail_and_status_section",
+  "id",
+  "tanggal_dibuat",
+  "column_break_ofou",
+  "available",
+  "permeter",
+  "section_break_pizx",
+  "contact",
+  "notes",
+  "lokasi_dan_alamat_section",
+  "letak",
+  "perumahan",
+  "perumahan_cluster",
+  "id_kecamatan",
+  "kecamatan_name",
+  "kota",
+  "provinsi",
+  "column_break_wmag",
+  "alamatproperti",
+  "namajalan",
+  "blokperumahan",
+  "nomorrumah",
+  "gps",
+  "specification_section",
+  "tipe_property",
+  "jual_sewa",
+  "harga",
+  "luas_tanah",
+  "lebar_x_panjang",
+  "luas_bangunan",
+  "kondisi_perabotan",
+  "column_break_ollb",
+  "kamar_tidur",
+  "kamar_tidur_pembantu",
+  "kamar_mandi",
+  "kamar_mandi_pembantu",
+  "sertifikat",
+  "column_break_abae",
+  "daya_listrik",
+  "sumber_air",
+  "carport",
+  "garasi",
+  "lebar_jalan",
+  "jumlah_lantai",
+  "lokasi_hook",
+  "kondisi_property",
+  "column_break_tsgv",
+  "jalur_telepon",
+  "ruang_makan",
+  "ruang_tamu",
+  "dapur",
+  "terjangkau_internet",
+  "material_lantai",
+  "konsep",
+  "pemandangan",
+  "tahun_dibangun",
+  "tahun_renovasi",
+  "hadap_section",
+  "timur",
+  "tenggara",
+  "column_break_cnbw",
+  "selatan",
+  "barat_daya",
+  "column_break_jfef",
+  "barat",
+  "barat_laut",
+  "column_break_ynzu",
+  "utara",
+  "timur_laut",
+  "field_sewa_section",
+  "periode_sewa",
+  "foto_dan_video_section",
+  "gambar_utama",
+  "column_break_kgjo",
+  "youtube_link",
+  "google_drive_folder",
+  "marketplace_upload_section",
+  "marketplace_upload",
+  "title_and_description_section",
+  "judul_listing",
+  "detail_listing",
+  "column_break_xbod",
+  "usp",
+  "wa_broadcast_text",
+  "fasilitas",
+  "fasilitas_perumahan",
+  "website_and_helper_section",
+  "route",
+  "r123_view_tab",
+  "123_harga",
+  "lamudi_view_tab",
+  "lamudi_harga",
+  "pinhome_view_tab",
+  "pinhome_harga"
+ ],
+ "fields": [
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "ID / Kode",
+   "unique": 1
+  },
+  {
+   "fieldname": "carport",
+   "fieldtype": "Int",
+   "label": "Carport"
+  },
+  {
+   "default": "0",
+   "fieldname": "dapur",
+   "fieldtype": "Check",
+   "label": "Dapur"
+  },
+  {
+   "fieldname": "garasi",
+   "fieldtype": "Int",
+   "label": "Garasi"
+  },
+  {
+   "fieldname": "konsep",
+   "fieldtype": "Select",
+   "label": "Konsep",
+   "options": "Minimalis Modern\nModern\nMinimalis atau Sederhana\nModern Glass House\nScandinavian\nIndustrial\nKontemporer\nAmerican Classic\nTownhouse\nPaviliun"
+  },
+  {
+   "fieldname": "sertifikat",
+   "fieldtype": "Select",
+   "label": "Sertifikat",
+   "options": "SHM - Sertifikat Hak Milik\nHGB - Hak Guna Bangun\nHP - Hak Pakai\nHS - Hak Sewa\nStrata\nLainnya\nSurat Hijau\nPPJB",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fasilitas",
+   "fieldtype": "Data",
+   "label": "Fasilitas"
+  },
+  {
+   "fieldname": "alamatproperti",
+   "fieldtype": "Data",
+   "label": "Alamat Lengkap",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "pemandangan",
+   "fieldtype": "Select",
+   "label": "Pemandangan",
+   "options": "Pemukiman Warga\nPedesaan\nPegunungan\nPantai\nTaman Kota\nPerkotaan"
+  },
+  {
+   "default": "0",
+   "fieldname": "lokasi_hook",
+   "fieldtype": "Check",
+   "label": "Lokasi Hook"
+  },
+  {
+   "default": "Perumahan/Komplek",
+   "fieldname": "letak",
+   "fieldtype": "Select",
+   "label": "Letak",
+   "options": "Perumahan/Komplek\nMasuk Gang\nSamping Jalan\nPedesaan"
+  },
+  {
+   "fieldname": "usp",
+   "fieldtype": "Data",
+   "label": "USP"
+  },
+  {
+   "fieldname": "permeter",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Harga Per Meter Persegi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "gps",
+   "fieldtype": "Data",
+   "label": "GPS",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "namajalan",
+   "fieldtype": "Data",
+   "label": "Nama Jalan",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "blokperumahan",
+   "fieldtype": "Data",
+   "label": "Blok Perumahan",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "nomorrumah",
+   "fieldtype": "Data",
+   "label": "Nomor Rumah",
+   "permlevel": 1
+  },
+  {
+   "fetch_from": "kecamatan.kota",
+   "fetch_if_empty": 1,
+   "fieldname": "kota",
+   "fieldtype": "Data",
+   "label": "Kota"
+  },
+  {
+   "fetch_from": "kecamatan.province_name",
+   "fetch_if_empty": 1,
+   "fieldname": "provinsi",
+   "fieldtype": "Data",
+   "label": "Provinsi"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "lokasi_dan_alamat_section",
+   "fieldtype": "Section Break",
+   "label": "Lokasi dan Alamat"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "marketplace_upload_section",
+   "fieldtype": "Section Break",
+   "label": "Marketplace Upload"
+  },
+  {
+   "fieldname": "column_break_wmag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "detail_and_status_section",
+   "fieldtype": "Section Break",
+   "label": "Detail and Status"
+  },
+  {
+   "fieldname": "specification_section",
+   "fieldtype": "Section Break",
+   "label": "Specification"
+  },
+  {
+   "fieldname": "column_break_ollb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "foto_dan_video_section",
+   "fieldtype": "Section Break",
+   "label": "Foto dan Video"
+  },
+  {
+   "fieldname": "column_break_kgjo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_abae",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tsgv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "field_sewa_section",
+   "fieldtype": "Section Break",
+   "label": "Field Sewa"
+  },
+  {
+   "fieldname": "title_and_description_section",
+   "fieldtype": "Section Break",
+   "label": "Title and Description"
+  },
+  {
+   "fieldname": "column_break_xbod",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "jual_sewa",
+   "fieldtype": "Select",
+   "label": "Jual / Sewa",
+   "options": "Dijual\nDisewakan",
+   "reqd": 1
+  },
+  {
+   "default": "Unfurnished",
+   "fieldname": "kondisi_perabotan",
+   "fieldtype": "Select",
+   "label": "Kondisi Perabotan",
+   "options": "Unfurnished\nSemi furnished\nFull furnished"
+  },
+  {
+   "fieldname": "hadap_section",
+   "fieldtype": "Section Break",
+   "label": "Hadap"
+  },
+  {
+   "default": "0",
+   "fieldname": "timur",
+   "fieldtype": "Check",
+   "label": "Timur"
+  },
+  {
+   "default": "0",
+   "fieldname": "tenggara",
+   "fieldtype": "Check",
+   "label": "Tenggara"
+  },
+  {
+   "fieldname": "column_break_cnbw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "selatan",
+   "fieldtype": "Check",
+   "label": "Selatan"
+  },
+  {
+   "default": "0",
+   "fieldname": "barat_daya",
+   "fieldtype": "Check",
+   "label": "Barat Daya"
+  },
+  {
+   "fieldname": "column_break_jfef",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "barat",
+   "fieldtype": "Check",
+   "label": "Barat"
+  },
+  {
+   "default": "0",
+   "fieldname": "barat_laut",
+   "fieldtype": "Check",
+   "label": "Barat Laut"
+  },
+  {
+   "fieldname": "column_break_ynzu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "utara",
+   "fieldtype": "Check",
+   "label": "Utara"
+  },
+  {
+   "default": "0",
+   "fieldname": "timur_laut",
+   "fieldtype": "Check",
+   "label": "Timur Laut"
+  },
+  {
+   "fieldname": "r123_view_tab",
+   "fieldtype": "Tab Break",
+   "label": "R123 View"
+  },
+  {
+   "fieldname": "123_harga",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Harga"
+  },
+  {
+   "fieldname": "lamudi_view_tab",
+   "fieldtype": "Tab Break",
+   "label": "Lamudi View"
+  },
+  {
+   "fieldname": "lamudi_harga",
+   "fieldtype": "Currency",
+   "is_virtual": 1,
+   "label": "Harga"
+  },
+  {
+   "fieldname": "pinhome_view_tab",
+   "fieldtype": "Tab Break",
+   "is_virtual": 1,
+   "label": "Pinhome View"
+  },
+  {
+   "fieldname": "pinhome_harga",
+   "fieldtype": "Currency",
+   "is_virtual": 1,
+   "label": "Harga"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Table",
+   "label": "Contact",
+   "options": "Property Listing Contact",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "marketplace_upload",
+   "fieldtype": "Table",
+   "label": "Marketplace Upload",
+   "options": "Property Listing Marketplace Upload",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "perumahan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Perumahan / Daerah / Komplek Apartment",
+   "options": "Perumahan"
+  },
+  {
+   "fieldname": "perumahan_cluster",
+   "fieldtype": "Link",
+   "label": "Cluster Perumahan / Tower Apartment",
+   "options": "Perumahan Cluster",
+   "permlevel": 1
+  },
+  {
+   "fetch_from": "kecamatan.area_name",
+   "fieldname": "kecamatan_name",
+   "fieldtype": "Data",
+   "label": "Kecamatan",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ofou",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_pizx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "tanggal_dibuat",
+   "fieldtype": "Datetime",
+   "label": "Tanggal dibuat",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "id_kecamatan",
+   "fieldtype": "Link",
+   "label": "R123 ID Kecamatan",
+   "options": "Kecamatan"
+  },
+  {
+   "fieldname": "tipe_property",
+   "fieldtype": "Select",
+   "label": "Tipe Property",
+   "options": "Rumah\nRuko\nApartment\nGudang\nTanah\nVilla",
+   "reqd": 1
+  },
+  {
+   "fieldname": "harga",
+   "fieldtype": "Currency",
+   "label": "Harga",
+   "precision": "0",
+   "reqd": 1
+  },
+  {
+   "fieldname": "luas_tanah",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Luas Tanah",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lebar_x_panjang",
+   "fieldtype": "Data",
+   "label": "Lebar x Panjang (meter)"
+  },
+  {
+   "fieldname": "luas_bangunan",
+   "fieldtype": "Data",
+   "label": "Luas Bangunan"
+  },
+  {
+   "fieldname": "kamar_tidur",
+   "fieldtype": "Int",
+   "label": "Kamar Tidur"
+  },
+  {
+   "fieldname": "kamar_tidur_pembantu",
+   "fieldtype": "Int",
+   "label": "Kamar Tidur Pembantu"
+  },
+  {
+   "fieldname": "kamar_mandi",
+   "fieldtype": "Int",
+   "label": "Kamar Mandi"
+  },
+  {
+   "fieldname": "kamar_mandi_pembantu",
+   "fieldtype": "Int",
+   "label": "Kamar Mandi Pembantu"
+  },
+  {
+   "fieldname": "daya_listrik",
+   "fieldtype": "Select",
+   "label": "Daya listrik",
+   "options": "\n450\n900\n1300\n2200\n3300\n3500\n4400\n5500\n6600\n7700\n8000\n9500\n10000\n10600\n11000\n12700\n13200\n13300\n13900\n16500\n17600\n19000\n22000\n23000\n24000\n30500\n33000\n38100\n41500\n47500\n53000\n61000\n66000\n76000\n82500\n85000\n95000"
+  },
+  {
+   "default": "PAM atau PDAM",
+   "fieldname": "sumber_air",
+   "fieldtype": "Select",
+   "label": "Sumber air",
+   "options": "PAM atau PDAM\nSumur Pompa\nSumur Bor\nSumur Resapan\nSumur Galian"
+  },
+  {
+   "fieldname": "lebar_jalan",
+   "fieldtype": "Data",
+   "label": "Lebar jalan"
+  },
+  {
+   "fieldname": "jumlah_lantai",
+   "fieldtype": "Int",
+   "label": "Jumlah Lantai"
+  },
+  {
+   "fieldname": "kondisi_property",
+   "fieldtype": "Select",
+   "label": "Kondisi property",
+   "options": "Baru\nBagus\nBagus Sekali\nButuh Renovasi\nSudah Renovasi"
+  },
+  {
+   "default": "0",
+   "fieldname": "jalur_telepon",
+   "fieldtype": "Check",
+   "label": "Jalur telepon"
+  },
+  {
+   "default": "0",
+   "fieldname": "ruang_makan",
+   "fieldtype": "Check",
+   "label": "Ruang makan"
+  },
+  {
+   "default": "0",
+   "fieldname": "ruang_tamu",
+   "fieldtype": "Check",
+   "label": "Ruang tamu"
+  },
+  {
+   "default": "0",
+   "fieldname": "terjangkau_internet",
+   "fieldtype": "Check",
+   "label": "Terjangkau Internet"
+  },
+  {
+   "fieldname": "material_lantai",
+   "fieldtype": "Data",
+   "label": "Material Lantai"
+  },
+  {
+   "fieldname": "tahun_dibangun",
+   "fieldtype": "Int",
+   "label": "Tahun Dibangun"
+  },
+  {
+   "fieldname": "tahun_renovasi",
+   "fieldtype": "Int",
+   "label": "Tahun Renovasi"
+  },
+  {
+   "fieldname": "periode_sewa",
+   "fieldtype": "Data",
+   "label": "Periode sewa"
+  },
+  {
+   "fieldname": "gambar_utama",
+   "fieldtype": "Attach Image",
+   "label": "Gambar Utama"
+  },
+  {
+   "fieldname": "google_drive_folder",
+   "fieldtype": "Data",
+   "label": "Google Drive Folder"
+  },
+  {
+   "fieldname": "youtube_link",
+   "fieldtype": "Data",
+   "label": "Youtube Link"
+  },
+  {
+   "fieldname": "judul_listing",
+   "fieldtype": "Data",
+   "label": "Judul Listing",
+   "reqd": 1
+  },
+  {
+   "fieldname": "detail_listing",
+   "fieldtype": "Text Editor",
+   "label": "Detail Listing",
+   "reqd": 1
+  },
+  {
+   "fieldname": "wa_broadcast_text",
+   "fieldtype": "Data",
+   "label": "WA Broadcast Text"
+  },
+  {
+   "fieldname": "fasilitas_perumahan",
+   "fieldtype": "Data",
+   "label": "Fasilitas perumahan"
+  },
+  {
+   "default": "0",
+   "fieldname": "available",
+   "fieldtype": "Check",
+   "label": "Available"
+  },
+  {
+   "fieldname": "website_and_helper_section",
+   "fieldtype": "Section Break",
+   "label": "Website and Helper"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "route"
+  }
+ ],
+ "grid_page_length": 50,
+ "has_web_view": 1,
+ "image_field": "gambar_utama",
+ "index_web_pages_for_search": 1,
+ "is_published_field": "available",
+ "links": [],
+ "make_attachments_public": 1,
+ "max_attachments": 20,
+ "modified": "2025-09-16 23:04:54.655088",
+ "modified_by": "Administrator",
+ "module": "Property Agent Listings",
+ "name": "Property Listing",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property User",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "route": "listings",
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Sold"
+  }
+ ],
+ "title_field": "id"
+}
