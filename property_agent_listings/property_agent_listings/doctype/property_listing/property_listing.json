@@ -4,7 +4,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:kode",
- "creation": "2025-09-10 12:49:05.349920",
+ "creation": "2025-09-19 23:59:05.555151",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -14,6 +14,7 @@
   "column_break_ofou",
   "available",
   "permeter",
+  "whatsapp_contact",
   "section_break_pizx",
   "contact",
   "notes",
@@ -226,8 +227,8 @@
   {
    "default": "Perumahan/Komplek",
    "fieldname": "letak",
-   "fieldtype": "Select",
-   "label": "Letak",
+   "fieldtype": "Data",
+   "label": "Letak"
   },
   {
    "fieldname": "usp",
@@ -511,8 +512,9 @@
   },
   {
    "fieldname": "tipe_property",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "label": "Tipe Property",
+   "options": "Rumah\nApartment\nRuko\nGudang\nTanah\nVilla",
    "reqd": 1
   },
   {
@@ -1084,7 +1086,6 @@
    "fieldname": "perumahan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "options": "Perumahan",
    "read_only": 1
   },
   {
@@ -1167,7 +1168,13 @@
    "fieldname": "kode",
    "fieldtype": "Data",
    "label": "Kode listing",
+   "no_copy": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "whatsapp_contact",
+   "fieldtype": "HTML",
+   "label": "WhatsApp Contact"
   }
  ],
  "grid_page_length": 50,
@@ -1178,8 +1185,8 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-09-19 23:29:22.881347",
- "modified_by": "sampahtj@gmail.com",
+ "modified": "2025-09-21 18:32:52.875963",
+ "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property Listing",
  "naming_rule": "By fieldname",
