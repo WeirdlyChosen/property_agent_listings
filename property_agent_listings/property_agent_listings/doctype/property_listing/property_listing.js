@@ -33,17 +33,44 @@ frappe.ui.form.on("Property Listing", {
         // Foto link text
         let fotoText = "";
         if (frm.doc.gd_folder) {
-            fotoText = "📷Foto: https://drive.google.com/embeddedfolderview?id=" + frm.doc.gd_folder + "#grid";
+            fotoText = "📷Foto: https://drive.google.com/embeddedfolderview?id=" + frm.doc.gd_folder + "#grid" + "\n\n";
         }
 
         // Video link text
         let videoText = "";
         if (frm.doc.yt_link) {
-            videoText = "🎥Video: " + frm.doc.yt_link;
+            videoText = "🎥Video: " + frm.doc.yt_link + "\n\n";
         }
 
+        let footerText = "Joe\nRay White TPI Wiyung";
+
+        // NEW: Prepare variable for phone (will be async fetched)
+        let phone = "";
+
+        if (frappe.boot.user) {
+            phone = frappe.boot.user.phone || "";
+        }
         // -------------------------------------
-        // 2. DETAIL LISTING (detail_listing_123)
+        // 2. COPYWRITING TAB
+        // -------------------------------------
+
+        let wa_group_broadcast_text =
+            (frm.doc.name || "") + isLelang +
+            (frm.doc.judul_listing || "") +
+            "\n\n" +
+            (frm.doc.detail_listing || "") +
+            "\n\n" +
+            "Hanya " + hargaText + "saja!\n\n" +
+            (fotoText || "") +
+            (videoText || "") +
+            footerText +
+            "\n" +
+            "https://wa.me/6287731234911" + phone;
+
+        frm.set_value("wa_group_broadcast_text", wa_group_broadcast_text);
+
+        // -------------------------------------
+        // 3. DETAIL LISTING (detail_listing)
         // -------------------------------------
         
         frm.set_value("harga_123", frm.doc.harga);
@@ -51,7 +78,7 @@ frappe.ui.form.on("Property Listing", {
 
 
         // -------------------------------------
-        // 3. DETAIL LISTING (detail_listing_123)
+        // 4. DETAIL LISTING (detail_listing_123)
         // -------------------------------------
         let detail_listing_123 =
             (frm.doc.id || "") + isLelang + "\n\n" +
@@ -62,23 +89,62 @@ frappe.ui.form.on("Property Listing", {
 
         frm.set_value("detail_listing_123", detail_listing_123);
 
-        // -------------------------------------
-        // 4. WHATSAPP TEXT (text_wa_client)
-        // -------------------------------------
-        let footerText = frappe.boot.user ? (frappe.boot.user.footerText || "") : "";
-        let phone = frappe.boot.user ? (frappe.boot.user.phone || "") : "";
+    }
+});
 
-        let text_wa_client =
-            (frm.doc.id || "") + isLelang + "\n\n" +
-            (frm.doc.tagline || "") + "\n\n" +
-            (frm.doc.description || "") + "\n\n" +
-            "Hanya " + hargaText + "saja!\n\n" +
-            fotoText + "\n" +
-            videoText; + "\n\n" +
-            footerText + "\n" +
-            "https://wa.me/" + phone;
+// -----------------------------
+// Child Table (Property Listing Contact)
+// -----------------------------
+frappe.ui.form.on("Property Listing Contact", {
+    whatsapp_button: function(frm, cdt, cdn) {
+        let row = locals[cdt][cdn];
 
-        frm.set_value("text_wa_client", text_wa_client);
-        // END of Whatsapp text
+        if (!row.mobile_no) {
+            frappe.msgprint("No mobile number found for this contact.");
+            return;
+        }
+
+        // 🔹 Sanitize WhatsApp number
+        let wa_number = row.mobile_no.replace(/\D/g, "");
+        if (wa_number.startsWith("0")) {
+            wa_number = "62" + wa_number.substring(1);
+        }
+        if (!wa_number) {
+            frappe.msgprint("Invalid WhatsApp number.");
+            return;
+        }
+
+        // 🔹 Greeting based on current hour
+        let hour = new Date().getHours();
+        let greet = "malam";
+        if (hour < 11) greet = "pagi";
+        else if (hour < 15) greet = "siang";
+        else if (hour < 18) greet = "sore";
+
+        // 🔹 Get first name of logged-in user
+        let firstname = frappe.boot.user.first_name || "";
+
+        // 🔹 Get listing info from parent form
+        let tipe_property = frm.doc.tipe_property || "property";
+        let alamat = frm.doc.alamat_property || "";
+
+        // 🔹 Message based on owner check
+        let message;
+        if (row.property_owner) {
+            message = `Selamat ${greet}, saya ${firstname} dari Raywhite TPI Wiyung.
+${tipe_property} yang di ${alamat} apa masih ada? 
+Apa bisa saya bantu pasarkan ${tipe_property} Bapak/Ibu? 
+Kalau bisa mohon dikirim spek dan fotonya. Terimakasih 🙏`;
+        } else {
+            message = `Selamat ${greet}, saya ${firstname} dari Raywhite TPI Wiyung.
+${tipe_property} yang di ${alamat} apa masih ada? 
+Bisa tolong dikirim spek dan fotonya ya. Nanti bisa co broke. Thank you 🙏`;
+        }
+
+        // 🔹 Encode for URL
+        let wa_url = `https://api.whatsapp.com/send?phone=${wa_number}&text=${encodeURIComponent(message)}`;
+
+        // 🔹 Open in new browser tab
+        window.open(wa_url, "_blank");
     }
 });
