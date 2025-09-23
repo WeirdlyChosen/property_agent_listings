@@ -12,6 +12,7 @@
   {
    "fieldname": "received_broadcast_text",
    "fieldtype": "Text",
+   "in_list_view": 1,
    "label": "Received Broadcast Text"
   }
  ],
@@ -19,7 +20,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-23 10:22:14.201448",
+ "modified": "2025-09-23 10:28:08.438732",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property Listing Received Broadcast",
