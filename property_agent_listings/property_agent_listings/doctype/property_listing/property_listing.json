@@ -95,6 +95,8 @@
   "usp",
   "fasilitas",
   "fasilitas_perumahan",
+  "section_break_jloo",
+  "received_broadcast_text",
   "website_and_helper_section",
   "route",
   "copywriting_tab",
@@ -1210,6 +1212,16 @@
    "fieldname": "wa_status_or_story",
    "fieldtype": "Small Text",
    "label": "WA Status or Story"
+  },
+  {
+   "fieldname": "section_break_jloo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "received_broadcast_text",
+   "fieldtype": "Table",
+   "label": "Received Broadcast Text",
+   "options": "Property Listing Received Broadcast"
   }
  ],
  "grid_page_length": 50,
@@ -1220,7 +1232,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-09-22 17:05:51.815043",
+ "modified": "2025-09-23 10:22:50.437936",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property Listing",
