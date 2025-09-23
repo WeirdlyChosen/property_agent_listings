@@ -248,7 +248,9 @@
    "fieldname": "gps",
    "fieldtype": "Data",
    "label": "GPS",
-   "permlevel": 1
+   "permlevel": 1,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fetch_from": "kecamatan.kota",
@@ -1158,31 +1160,41 @@
    "fieldname": "nama_jalan",
    "fieldtype": "Data",
    "label": "Nama Jalan",
-   "permlevel": 1
+   "permlevel": 1,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "blok_perumahan",
    "fieldtype": "Data",
    "label": "Blok Perumahan",
-   "permlevel": 1
+   "permlevel": 1,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "nomor_rumah",
    "fieldtype": "Data",
    "label": "Nomor Rumah",
-   "permlevel": 1
+   "permlevel": 1,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "gps_location",
    "fieldtype": "Geolocation",
-   "label": "GPS location"
+   "label": "GPS location",
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "alamat_property",
    "fieldtype": "Data",
    "label": "Alamat Lengkap",
    "permlevel": 1,
-   "read_only": 1
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "wa_group_broadcast_text",
@@ -1208,7 +1220,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-09-22 02:33:10.704107",
+ "modified": "2025-09-22 17:05:51.815043",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property Listing",
