@@ -28,15 +28,6 @@ class PropertyListing(WebsiteGenerator):
 			# If either field is missing, reset to 0
 			self.permeter = 0
 
-		# --- HTML field updates ---
-		# Example: turn google_drive_folder into clickable link
-		if self.google_drive_folder:
-			self.google_drive_link = (
-				f'<a href="{self.google_drive_folder}" target="_blank">Open Google Drive</a>'
-			)
-		else:
-			self.google_drive_link = ""
-
 		# --- Alamat Property ---
 		parts = []
 
@@ -61,8 +52,8 @@ class PropertyListing(WebsiteGenerator):
 			sep = " " if not self.blok_perumahan else "-"
 			parts.append(f"{sep}{self.nomor_rumah}")
 
-		if self.kecamatan:
-			parts.append(f" {self.kecamatan}")
+		if self.kecamatan_name:
+			parts.append(f" {self.kecamatan_name}")
 
 		if self.kota:
 			parts.append(f" {self.kota}")

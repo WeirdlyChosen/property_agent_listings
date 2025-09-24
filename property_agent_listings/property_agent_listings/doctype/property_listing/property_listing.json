@@ -55,8 +55,8 @@
   "garasi",
   "lebar_jalan",
   "jumlah_lantai",
-  "lokasi_hook",
   "kondisi_property",
+  "lokasi_hook",
   "column_break_tsgv",
   "jalur_telepon",
   "ruang_makan",
@@ -84,10 +84,10 @@
   "periode_sewa",
   "foto_dan_video_section",
   "gambar_utama",
-  "column_break_kgjo",
-  "youtube_link",
   "google_drive_folder",
   "google_drive_link",
+  "column_break_kgjo",
+  "youtube_link",
   "title_and_description_section",
   "judul_listing",
   "detail_listing",
@@ -109,49 +109,19 @@
   "google_drive_link_123",
   "lebar_x_panjang_123",
   "perumahan_cluster_123",
-  "kota_123",
   "id_kecamatan_123",
-  "letak_123",
-  "available_123",
-  "permeter_123",
   "gps_123",
   "blokperumahan_123",
   "id_123",
-  "kamar_tidur_pembantu_123",
-  "provinsi_123",
-  "daya_listrik_123",
-  "lokasi_hook_123",
-  "sumber_air_123",
   "sertifikat_123",
-  "kamar_mandi_pembantu_123",
-  "lebar_jalan_123",
-  "material_lantai_123",
-  "ruang_makan_123",
-  "ruang_tamu_123",
-  "pemandangan_123",
-  "tahun_dibangun_123",
-  "terjangkau_internet_123",
-  "konsep_123",
-  "jalur_telepon_123",
-  "dapur_123",
-  "tahun_renovasi_123",
-  "barat_123",
-  "barat_daya_123",
-  "timur_123",
-  "tenggara_123",
-  "barat_laut_123",
-  "route_123",
   "periode_sewa_123",
-  "fasilitas_perumahan_123",
   "gambar_utama_123",
-  "judul_listing_123",
-  "utara_123",
-  "fasilitas_123",
   "wa_broadcast_text_123",
-  "timur_laut_123",
   "google_drive_folder_123",
   "section_break_vstl",
   "kecamatan_name_123",
+  "provinsi_123",
+  "kota_123",
   "perumahan_123",
   "luas_tanah_123",
   "luas_bangunan_123",
@@ -163,14 +133,46 @@
   "kondisi_property_123",
   "kondisi_perabotan_123",
   "usp_123",
-  "harga_123",
-  "detail_listing_123",
   "hadap_123_section",
+  "timur_123",
+  "tenggara_123",
+  "column_break_rhuz",
   "selatan_123",
+  "barat_daya_123",
+  "column_break_fxkl",
+  "barat_123",
+  "barat_laut_123",
+  "column_break_wkqe",
+  "utara_123",
+  "timur_laut_123",
+  "section_break_ibxr",
+  "fasilitas_123",
+  "fasilitas_perumahan_123",
+  "lebar_jalan_123",
+  "konsep_123",
+  "pemandangan_123",
+  "daya_listrik_123",
+  "tahun_dibangun_123",
+  "tahun_renovasi_123",
+  "sumber_air_123",
+  "letak_123",
+  "dapur_123",
+  "kamar_tidur_pembantu_123",
+  "kamar_mandi_pembantu_123",
+  "ruang_tamu_123",
+  "ruang_makan_123",
+  "lokasi_hook_123",
+  "terjangkau_internet_123",
+  "jalur_telepon_123",
+  "material_lantai_123",
+  "section_break_nwta",
+  "harga_123",
+  "judul_listing_123",
+  "detail_listing_123",
   "lamudi_view_tab",
-  "lamudi_harga",
+  "harga_lamudi",
   "pinhome_view_tab",
-  "pinhome_harga",
+  "harga_pinhome",
   "marketplace_tab",
   "marketplace_upload_section",
   "marketplace_upload"
@@ -201,6 +203,8 @@
   {
    "fieldname": "sertifikat",
    "fieldtype": "Select",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Sertifikat",
    "options": "SHM - Sertifikat Hak Milik\nHGB - Hak Guna Bangun\nHP - Hak Pakai\nHS - Hak Sewa\nStrata\nLainnya\nSurat Hijau\nPPJB",
    "reqd": 1
@@ -237,13 +241,15 @@
   {
    "fieldname": "permeter",
    "fieldtype": "Currency",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Harga Per Meter Persegi",
    "read_only": 1
   },
   {
    "fieldname": "notes",
-   "fieldtype": "Text",
+   "fieldtype": "Small Text",
    "label": "Notes untuk semua orang"
   },
   {
@@ -332,7 +338,9 @@
   {
    "fieldname": "jual_sewa",
    "fieldtype": "Select",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Jual / Sewa",
    "options": "Dijual\nDisewakan",
    "reqd": 1
@@ -353,12 +361,16 @@
    "default": "0",
    "fieldname": "timur",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Timur"
   },
   {
    "default": "0",
    "fieldname": "tenggara",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Tenggara"
   },
   {
@@ -369,12 +381,16 @@
    "default": "0",
    "fieldname": "selatan",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Selatan"
   },
   {
    "default": "0",
    "fieldname": "barat_daya",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Barat Daya"
   },
   {
@@ -385,12 +401,16 @@
    "default": "0",
    "fieldname": "barat",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Barat"
   },
   {
    "default": "0",
    "fieldname": "barat_laut",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Barat Laut"
   },
   {
@@ -401,12 +421,16 @@
    "default": "0",
    "fieldname": "utara",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Utara"
   },
   {
    "default": "0",
    "fieldname": "timur_laut",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Timur Laut"
   },
   {
@@ -420,22 +444,10 @@
    "label": "Lamudi View"
   },
   {
-   "fieldname": "lamudi_harga",
-   "fieldtype": "Currency",
-   "is_virtual": 1,
-   "label": "Harga"
-  },
-  {
    "fieldname": "pinhome_view_tab",
    "fieldtype": "Tab Break",
    "is_virtual": 1,
    "label": "Pinhome View"
-  },
-  {
-   "fieldname": "pinhome_harga",
-   "fieldtype": "Currency",
-   "is_virtual": 1,
-   "label": "Harga"
   },
   {
    "fieldname": "contact",
@@ -454,7 +466,9 @@
   {
    "fieldname": "perumahan",
    "fieldtype": "Link",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Perumahan / Daerah / Komplek Apartment",
    "options": "Perumahan"
   },
@@ -497,7 +511,9 @@
   {
    "fieldname": "tipe_property",
    "fieldtype": "Select",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Tipe Property",
    "options": "Rumah\nApartment\nRuko\nGudang\nTanah\nVilla",
    "reqd": 1
@@ -506,7 +522,9 @@
    "default": "0",
    "fieldname": "harga",
    "fieldtype": "Currency",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Harga",
    "precision": "0",
    "reqd": 1
@@ -515,7 +533,9 @@
    "default": "0",
    "fieldname": "luas_tanah",
    "fieldtype": "Int",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Luas Tanah",
    "reqd": 1
   },
@@ -532,6 +552,8 @@
   {
    "fieldname": "kamar_tidur",
    "fieldtype": "Int",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Kamar Tidur"
   },
   {
@@ -542,6 +564,8 @@
   {
    "fieldname": "kamar_mandi",
    "fieldtype": "Int",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Kamar Mandi"
   },
   {
@@ -565,7 +589,9 @@
   {
    "fieldname": "lebar_jalan",
    "fieldtype": "Data",
-   "label": "Lebar jalan"
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Lebar jalan (mobil)"
   },
   {
    "fieldname": "jumlah_lantai",
@@ -682,7 +708,7 @@
    "fieldname": "luas_tanah_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Luas Tanah123",
+   "label": "Luas Tanah 123",
    "read_only": 1
   },
   {
@@ -712,9 +738,9 @@
   },
   {
    "fieldname": "google_drive_link",
-   "fieldtype": "HTML",
+   "fieldtype": "Button",
    "is_virtual": 1,
-   "label": "Google Drive Link",
+   "label": "Open Google Drive",
    "read_only": 1
   },
   {
@@ -775,21 +801,6 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Letak 123",
-   "read_only": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "available_123",
-   "fieldtype": "Check",
-   "is_virtual": 1,
-   "label": "Available 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "permeter_123",
-   "fieldtype": "Currency",
-   "is_virtual": 1,
-   "label": "Harga Per Meter Persegi 123",
    "read_only": 1
   },
   {
@@ -986,13 +997,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "route_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "route 123",
-   "read_only": 1
-  },
-  {
    "fieldname": "periode_sewa_123",
    "fieldtype": "Data",
    "is_virtual": 1,
@@ -1068,6 +1072,7 @@
    "fieldname": "perumahan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
+   "label": "Perumahan 123",
    "read_only": 1
   },
   {
@@ -1155,7 +1160,8 @@
   },
   {
    "fieldname": "whatsapp_contact",
-   "fieldtype": "HTML",
+   "fieldtype": "Button",
+   "is_virtual": 1,
    "label": "WhatsApp Contact"
   },
   {
@@ -1222,6 +1228,38 @@
    "fieldtype": "Table",
    "label": "Received Broadcast Text",
    "options": "Property Listing Received Broadcast"
+  },
+  {
+   "fieldname": "harga_lamudi",
+   "fieldtype": "Currency",
+   "is_virtual": 1,
+   "label": "Harga Lamudi"
+  },
+  {
+   "fieldname": "harga_pinhome",
+   "fieldtype": "Currency",
+   "is_virtual": 1,
+   "label": "Harga Pinhome"
+  },
+  {
+   "fieldname": "column_break_rhuz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fxkl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wkqe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ibxr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_nwta",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
@@ -1232,7 +1270,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-09-23 10:22:50.437936",
+ "modified": "2025-09-23 16:03:15.957429",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property Listing",
