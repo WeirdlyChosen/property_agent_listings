@@ -104,25 +104,17 @@
   "wa_client_broadcast_text",
   "wa_status_or_story",
   "r123_view_tab",
+  "tipe_property_123",
   "jual_sewa_123",
   "youtube_link_123",
   "google_drive_link_123",
-  "lebar_x_panjang_123",
-  "perumahan_cluster_123",
-  "id_kecamatan_123",
-  "gps_123",
-  "blokperumahan_123",
-  "id_123",
-  "sertifikat_123",
-  "periode_sewa_123",
-  "gambar_utama_123",
-  "wa_broadcast_text_123",
-  "google_drive_folder_123",
+  "cobroke_123",
   "section_break_vstl",
   "kecamatan_name_123",
   "provinsi_123",
   "kota_123",
   "perumahan_123",
+  "column_break_ckoh",
   "luas_tanah_123",
   "luas_bangunan_123",
   "kamar_tidur_123",
@@ -130,30 +122,31 @@
   "jumlah_lantai_123",
   "garasi_123",
   "carport_123",
+  "column_break_setc",
+  "sertifikat_123",
   "kondisi_property_123",
   "kondisi_perabotan_123",
   "usp_123",
   "hadap_123_section",
   "timur_123",
   "tenggara_123",
-  "column_break_rhuz",
   "selatan_123",
   "barat_daya_123",
-  "column_break_fxkl",
   "barat_123",
   "barat_laut_123",
-  "column_break_wkqe",
   "utara_123",
   "timur_laut_123",
   "section_break_ibxr",
   "fasilitas_123",
   "fasilitas_perumahan_123",
   "lebar_jalan_123",
+  "column_break_cxos",
   "konsep_123",
   "pemandangan_123",
   "daya_listrik_123",
   "tahun_dibangun_123",
   "tahun_renovasi_123",
+  "column_break_zjzf",
   "sumber_air_123",
   "letak_123",
   "dapur_123",
@@ -163,18 +156,67 @@
   "ruang_makan_123",
   "lokasi_hook_123",
   "terjangkau_internet_123",
-  "jalur_telepon_123",
   "material_lantai_123",
   "section_break_nwta",
   "harga_123",
   "judul_listing_123",
   "detail_listing_123",
   "lamudi_view_tab",
+  "marketplace_upload_section",
+  "utara_lamudi",
+  "daya_listrik_lamudi",
+  "luas_tanah_lamudi",
+  "timur_lamudi",
+  "barat_lamudi",
+  "tahun_renovasi_lamudi",
+  "carport_lamudi",
+  "kondisi_perabotan_lamudi",
+  "kondisi_property_lamudi",
+  "konsep_lamudi",
+  "ruang_makan_lamudi",
+  "judul_listing_lamudi",
+  "terjangkau_internet_lamudi",
+  "ruang_tamu_lamudi",
+  "pemandangan_lamudi",
+  "letak_lamudi",
+  "tipe_property_lamudi",
+  "tenggara_lamudi",
+  "luas_bangunan_lamudi",
+  "perumahan_lamudi",
+  "material_lantai_lamudi",
+  "provinsi_lamudi",
+  "lokasi_hook_lamudi",
+  "barat_laut_lamudi",
+  "fasilitas_perumahan_lamudi",
+  "kamar_tidur_pembantu_lamudi",
+  "timur_laut_lamudi",
+  "youtube_link_lamudi",
+  "cobroke_lamudi",
+  "dapur_lamudi",
+  "jumlah_lantai_lamudi",
+  "selatan_lamudi",
+  "garasi_lamudi",
+  "google_drive_link_lamudi",
+  "kota_lamudi",
+  "sumber_air_lamudi",
+  "jual_sewa_lamudi",
+  "lebar_jalan_lamudi",
+  "barat_daya_lamudi",
+  "kamar_mandi_pembantu_lamudi",
+  "detail_listing_lamudi",
+  "sertifikat_lamudi",
+  "kamar_mandi_lamudi",
+  "tahun_dibangun_lamudi",
+  "fasilitas_lamudi",
+  "kecamatan_name_lamudi",
+  "section_break_jtag",
+  "usp_lamudi",
+  "section_break_tsyw",
   "harga_lamudi",
+  "kamar_tidur_lamudi",
   "pinhome_view_tab",
   "harga_pinhome",
   "marketplace_tab",
-  "marketplace_upload_section",
   "marketplace_upload"
  ],
  "fields": [
@@ -763,23 +805,9 @@
   },
   {
    "fieldname": "google_drive_link_123",
-   "fieldtype": "HTML",
+   "fieldtype": "Button",
    "is_virtual": 1,
-   "label": "Google Drive Link 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "lebar_x_panjang_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "Lebar x Panjang (meter) 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "perumahan_cluster_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "Cluster Perumahan / Tower Apartment 123",
+   "label": "Open Google Drive 123",
    "read_only": 1
   },
   {
@@ -790,38 +818,10 @@
    "read_only": 1
   },
   {
-   "fieldname": "id_kecamatan_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "R123 ID Kecamatan 123",
-   "read_only": 1
-  },
-  {
    "fieldname": "letak_123",
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Letak 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "gps_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "GPS 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "blokperumahan_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "Blok Perumahan 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "id_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "ID / Kode 123",
    "read_only": 1
   },
   {
@@ -935,14 +935,6 @@
   },
   {
    "default": "0",
-   "fieldname": "jalur_telepon_123",
-   "fieldtype": "Check",
-   "is_virtual": 1,
-   "label": "Jalur telepon 123",
-   "read_only": 1
-  },
-  {
-   "default": "0",
    "fieldname": "dapur_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -997,24 +989,10 @@
    "read_only": 1
   },
   {
-   "fieldname": "periode_sewa_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "Periode sewa 123",
-   "read_only": 1
-  },
-  {
    "fieldname": "fasilitas_perumahan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Fasilitas perumahan 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "gambar_utama_123",
-   "fieldtype": "Attach Image",
-   "is_virtual": 1,
-   "label": "Gambar Utama 123",
    "read_only": 1
   },
   {
@@ -1040,25 +1018,11 @@
    "read_only": 1
   },
   {
-   "fieldname": "wa_broadcast_text_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "WA Broadcast Text 123",
-   "read_only": 1
-  },
-  {
    "default": "0",
    "fieldname": "timur_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Timur Laut 123",
-   "read_only": 1
-  },
-  {
-   "fieldname": "google_drive_folder_123",
-   "fieldtype": "Data",
-   "is_virtual": 1,
-   "label": "Google Drive Folder 123",
    "read_only": 1
   },
   {
@@ -1242,23 +1206,400 @@
    "label": "Harga Pinhome"
   },
   {
-   "fieldname": "column_break_rhuz",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_fxkl",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_wkqe",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "section_break_ibxr",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "section_break_nwta",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tipe_property_123",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "is_virtual": 1,
+   "label": "Tipe Property 123"
+  },
+  {
+   "default": "0",
+   "fieldname": "cobroke_123",
+   "fieldtype": "Check",
+   "label": "Cobroke 123"
+  },
+  {
+   "fieldname": "column_break_ckoh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_setc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cxos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zjzf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kamar_tidur_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Kamar Tidur lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "luas_tanah_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Luas Tanah lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "daya_listrik_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Daya listrik lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "usp_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "USP lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "utara_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Utara lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "timur_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Timur lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "barat_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Barat lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tahun_renovasi_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Tahun Renovasi lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "carport_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Carport lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kondisi_perabotan_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Kondisi Perabotan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kondisi_property_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Kondisi property lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "konsep_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Konsep lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "ruang_makan_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Ruang makan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "judul_listing_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Judul Listing lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "terjangkau_internet_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Terjangkau Internet lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "ruang_tamu_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Ruang tamu lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pemandangan_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Pemandangan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "letak_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Letak lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tipe_property_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Tipe Property lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "tenggara_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Tenggara lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "luas_bangunan_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Luas Bangunan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "perumahan_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Perumahan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "material_lantai_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Material Lantai lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "provinsi_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Provinsi lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "lokasi_hook_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Lokasi Hook lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "barat_laut_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Barat Laut lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fasilitas_perumahan_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Fasilitas perumahan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kamar_tidur_pembantu_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Kamar Tidur Pembantu lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "timur_laut_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Timur Laut lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "youtube_link_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Youtube Link lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "cobroke_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Cobroke lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "dapur_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Dapur lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "jumlah_lantai_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Jumlah Lantai lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "selatan_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Selatan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "garasi_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Garasi lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "google_drive_link_lamudi",
+   "fieldtype": "Button",
+   "is_virtual": 1,
+   "label": "Open Google Drive lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kota_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Kota lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sumber_air_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Sumber air lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "jual_sewa_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Jual / Sewa lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lebar_jalan_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Lebar jalan lamudi",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "barat_daya_lamudi",
+   "fieldtype": "Check",
+   "is_virtual": 1,
+   "label": "Barat Daya lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kamar_mandi_pembantu_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Kamar Mandi Pembantu lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "detail_listing_lamudi",
+   "fieldtype": "Long Text",
+   "is_virtual": 1,
+   "label": "Deskripsi lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sertifikat_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Sertifikat lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kamar_mandi_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Kamar Mandi lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tahun_dibangun_lamudi",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Tahun Dibangun lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fasilitas_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Fasilitas lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kecamatan_name_lamudi",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Kecamatan lamudi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_jtag",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_tsyw",
    "fieldtype": "Section Break"
   }
  ],
@@ -1270,7 +1611,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-09-23 16:03:15.957429",
+ "modified": "2025-09-24 22:56:34.009892",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property Listing",
