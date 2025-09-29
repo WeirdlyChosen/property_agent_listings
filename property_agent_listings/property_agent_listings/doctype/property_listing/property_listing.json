@@ -744,20 +744,23 @@
    "fieldtype": "Currency",
    "is_virtual": 1,
    "label": "Harga123",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "luas_tanah_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Luas Tanah 123",
+   "label": "123 Luas Tanah",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "detail_listing_123",
    "fieldtype": "Long Text",
    "is_virtual": 1,
-   "label": "Deskripsi 123",
+   "label": "123 Deskripsi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -793,56 +796,64 @@
    "fieldname": "jual_sewa_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Jual / Sewa 123",
+   "label": "123 Jual / Sewa",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "youtube_link_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Youtube Link 123",
+   "label": "123 Youtube Link",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "google_drive_link_123",
    "fieldtype": "Button",
    "is_virtual": 1,
-   "label": "Open Google Drive 123",
+   "label": "123 Open Google Drive",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kota_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Kota 123",
+   "label": "123 Kota",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "letak_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Letak 123",
+   "label": "123 Letak",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kamar_tidur_pembantu_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Kamar Tidur Pembantu 123",
+   "label": "123 Kamar Tidur Pembantu",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "provinsi_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Provinsi 123",
+   "label": "123 Provinsi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "daya_listrik_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Daya listrik 123",
+   "label": "123 Daya listrik",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -850,42 +861,48 @@
    "fieldname": "lokasi_hook_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Lokasi Hook 123",
+   "label": "123 Lokasi Hook",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "sumber_air_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Sumber air 123",
+   "label": "123 Sumber air",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "sertifikat_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Sertifikat 123",
+   "label": "123 Sertifikat",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kamar_mandi_pembantu_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Kamar Mandi Pembantu 123",
+   "label": "123 Kamar Mandi Pembantu",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "lebar_jalan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Lebar jalan 123",
+   "label": "123 Lebar jalan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "material_lantai_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Material Lantai 123",
+   "label": "123 Material Lantai",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -893,7 +910,8 @@
    "fieldname": "ruang_makan_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Ruang makan 123",
+   "label": "123 Ruang makan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -901,21 +919,24 @@
    "fieldname": "ruang_tamu_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Ruang tamu 123",
+   "label": "123 Ruang tamu",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "pemandangan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Pemandangan 123",
+   "label": "123 Pemandangan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "tahun_dibangun_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Tahun Dibangun 123",
+   "label": "123 Tahun Dibangun",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -923,14 +944,16 @@
    "fieldname": "terjangkau_internet_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Terjangkau Internet 123",
+   "label": "123 Terjangkau Internet",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "konsep_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Konsep 123",
+   "label": "123 Konsep",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -938,14 +961,16 @@
    "fieldname": "dapur_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Dapur 123",
+   "label": "123 Dapur",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "tahun_renovasi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Tahun Renovasi 123",
+   "label": "123 Tahun Renovasi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -953,7 +978,8 @@
    "fieldname": "barat_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Barat 123",
+   "label": "123 Barat",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -961,7 +987,8 @@
    "fieldname": "barat_daya_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Barat Daya 123",
+   "label": "123 Barat Daya",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -969,7 +996,8 @@
    "fieldname": "timur_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Timur 123",
+   "label": "123 Timur",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -977,7 +1005,8 @@
    "fieldname": "tenggara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Tenggara 123",
+   "label": "123 Tenggara",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -985,21 +1014,24 @@
    "fieldname": "barat_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Barat Laut 123",
+   "label": "123 Barat Laut",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "fasilitas_perumahan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Fasilitas perumahan 123",
+   "label": "123 Fasilitas perumahan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "judul_listing_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Judul Listing 123",
+   "label": "123 Judul Listing",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1007,14 +1039,16 @@
    "fieldname": "utara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Utara 123",
+   "label": "123 Utara",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "fasilitas_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Fasilitas 123",
+   "label": "123 Fasilitas",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1022,97 +1056,110 @@
    "fieldname": "timur_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Timur Laut 123",
+   "label": "123 Timur Laut",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kecamatan_name_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Kecamatan 123",
+   "label": "123 Kecamatan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "perumahan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Perumahan 123",
+   "label": "123 Perumahan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "luas_bangunan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Luas Bangunan 123",
+   "label": "123 Luas Bangunan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kamar_tidur_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Kamar Tidur 123",
+   "label": "123 Kamar Tidur",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kamar_mandi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Kamar Mandi 123",
+   "label": "123 Kamar Mandi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "jumlah_lantai_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Jumlah Lantai 123",
+   "label": "123 Jumlah Lantai",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "garasi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Garasi 123",
+   "label": "123 Garasi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "carport_123",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Carport 123",
+   "label": "123 Carport",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kondisi_property_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Kondisi property 123",
+   "label": "123 Kondisi property",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "kondisi_perabotan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Kondisi Perabotan 123",
+   "label": "123 Kondisi Perabotan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "usp_123",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "USP 123",
+   "label": "123 USP",
+   "report_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "hadap_123_section",
    "fieldtype": "Section Break",
-   "label": "Hadap 123"
+   "label": "123 Hadap"
   },
   {
    "default": "0",
    "fieldname": "selatan_123",
    "fieldtype": "Check",
    "is_virtual": 1,
-   "label": "Selatan 123",
+   "label": "123 Selatan",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1217,16 +1264,17 @@
    "fieldname": "tipe_property_123",
    "fieldtype": "Data",
    "in_filter": 1,
-   "in_list_view": 1,
+   "report_hide": 1,
    "in_standard_filter": 1,
    "is_virtual": 1,
-   "label": "Tipe Property 123"
+   "label": "123 Tipe Property"
   },
   {
    "default": "0",
    "fieldname": "cobroke_123",
    "fieldtype": "Check",
-   "label": "Cobroke 123"
+   "report_hide": 1,
+   "label": "123 Cobroke"
   },
   {
    "fieldname": "column_break_ckoh",
@@ -1249,6 +1297,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Kamar Tidur lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1256,6 +1305,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Luas Tanah lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1263,6 +1313,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Daya listrik lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1270,6 +1321,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "USP lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1278,6 +1330,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Utara lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1286,6 +1339,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Timur lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1294,6 +1348,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Barat lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1301,6 +1356,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Tahun Renovasi lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1308,6 +1364,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Carport lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1315,6 +1372,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Kondisi Perabotan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1322,6 +1380,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Kondisi property lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1329,6 +1388,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Konsep lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1337,6 +1397,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Ruang makan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1344,6 +1405,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Judul Listing lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1352,6 +1414,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Terjangkau Internet lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1360,6 +1423,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Ruang tamu lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1367,6 +1431,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Pemandangan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1374,6 +1439,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Letak lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1381,6 +1447,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Tipe Property lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1389,6 +1456,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Tenggara lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1396,6 +1464,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Luas Bangunan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1403,6 +1472,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Perumahan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1410,6 +1480,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Material Lantai lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1417,6 +1488,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Provinsi lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1425,6 +1497,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Lokasi Hook lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1433,6 +1506,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Barat Laut lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1440,6 +1514,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Fasilitas perumahan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1447,6 +1522,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Kamar Tidur Pembantu lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1455,6 +1531,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Timur Laut lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1462,6 +1539,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Youtube Link lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1470,6 +1548,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Cobroke lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1478,6 +1557,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Dapur lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1485,6 +1565,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Jumlah Lantai lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1493,6 +1574,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Selatan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1500,6 +1582,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Garasi lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1507,6 +1590,7 @@
    "fieldtype": "Button",
    "is_virtual": 1,
    "label": "Open Google Drive lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1514,6 +1598,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Kota lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1521,6 +1606,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Sumber air lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1528,6 +1614,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Jual / Sewa lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1535,6 +1622,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Lebar jalan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1543,6 +1631,7 @@
    "fieldtype": "Check",
    "is_virtual": 1,
    "label": "Barat Daya lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1550,6 +1639,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Kamar Mandi Pembantu lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1557,6 +1647,7 @@
    "fieldtype": "Long Text",
    "is_virtual": 1,
    "label": "Deskripsi lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1564,6 +1655,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Sertifikat lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1571,6 +1663,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Kamar Mandi lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1578,6 +1671,7 @@
    "fieldtype": "Int",
    "is_virtual": 1,
    "label": "Tahun Dibangun lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1585,6 +1679,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Fasilitas lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
@@ -1592,6 +1687,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Kecamatan lamudi",
+   "report_hide": 1,
    "read_only": 1
   },
   {
