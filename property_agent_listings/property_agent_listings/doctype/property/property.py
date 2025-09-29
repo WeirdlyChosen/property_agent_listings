@@ -5,17 +5,14 @@ from frappe.model.document import Document
 from frappe.website.website_generator import WebsiteGenerator
 
 
-class PropertyListing(WebsiteGenerator):
+class Property(WebsiteGenerator):
 	def autoname(self):
 		"""
 		Override autoname to generate 8-char UID for 'kode' field if it's empty.
 		Also set it as doc.name if you want.
 		"""
-		if not self.kode:
-			self.kode = uuid.uuid4().hex[:8]
-
-		# If you also want to use it as the document name
-		self.name = self.kode
+		if not self.name:
+			self.name = uuid.uuid4().hex[:8]
 
 	def validate(self):
 		"""Recalculate harga per meter persegi before saving"""

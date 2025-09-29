@@ -1,7 +1,7 @@
 // Copyright (c) 2025, HomeAutomator and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on("Property Listing", {
+frappe.ui.form.on("Property", {
 	refresh: function (frm) {
 		// -------------------------------------
 		// 1. VARIABLE GENERATION
@@ -154,7 +154,7 @@ frappe.ui.form.on("Property Listing", {
 	},
 });
 
-frappe.ui.form.on("Property Listing", {
+frappe.ui.form.on("Property", {
 	google_drive_link: function (frm) {
 		if (frm.doc.google_drive_folder) {
 			let url = "https://drive.google.com/drive/folders/" + frm.doc.google_drive_folder;
@@ -166,9 +166,9 @@ frappe.ui.form.on("Property Listing", {
 });
 
 // -----------------------------
-// Child Table (Property Listing Contact)
+// Child Table (Property Contact)
 // -----------------------------
-frappe.ui.form.on("Property Listing Contact", {
+frappe.ui.form.on("Property Contact", {
 	whatsapp_button: function (frm, cdt, cdn) {
 		let row = locals[cdt][cdn];
 
