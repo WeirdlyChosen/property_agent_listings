@@ -23,8 +23,19 @@ frappe.ui.form.on("Property", {
 			if (frm.doc.harga / 1000000000 >= 1) {
 				hargaText = (frm.doc.harga / 1000000000).toFixed(2).replace(/\.00$/, "") + "M ";
 			} else {
-				hargaText = (frm.doc.harga / 1000000).toFixed(0) + " juta ";
+				hargaText = (frm.doc.harga / 1000000).toFixed(0) + " juta |";
 			}
+		}
+
+		let perMeterText = "";
+		if (frm.doc.permeter) {
+			perMeterText = "\n" + Math.floor(frm.doc.permeter / 1000000) + " jutaan per meter!";
+		}
+
+		// lantai logic (only if >1)
+		let lantaiText = "";
+		if (frm.doc.jml_lantai && frm.doc.jml_lantai > 1) {
+			lantaiText = " | " + frm.doc.jml_lantai + " Lantai";
 		}
 
 		// Foto link text
@@ -51,6 +62,7 @@ frappe.ui.form.on("Property", {
 		if (frappe.boot.user) {
 			phone = frappe.boot.user.phone || "";
 		}
+
 		// -------------------------------------
 		// 2. COPYWRITING TAB
 		// -------------------------------------
@@ -92,6 +104,24 @@ frappe.ui.form.on("Property", {
 			phone;
 
 		frm.set_value("wa_client_broadcast_text", wa_client_broadcast_text);
+
+		let wa_status_or_story =
+			(frm.doc.tipe_property || "") +
+			" " +
+			(frm.doc.perumahan || "") +
+			" Murah!!\n" +
+			"LT: " +
+			(frm.doc.luas_tanah || "") +
+			" m²" +
+			lantaiText +
+			"\n\n" +
+			"Hanya " +
+			hargaText +
+			perMeterText +
+			"\n\n" +
+			(frm.doc.name || "");
+
+		frm.set_value("wa_status_or_story", wa_status_or_story);
 
 		// -------------------------------------
 		// 3. R123 TAB (mirror fields from Details tab)

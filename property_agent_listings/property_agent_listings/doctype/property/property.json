@@ -708,11 +708,15 @@
   {
    "fieldname": "judul_listing",
    "fieldtype": "Data",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Judul Listing"
   },
   {
    "fieldname": "detail_listing",
    "fieldtype": "Long Text",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Detail Listing"
   },
   {
@@ -1216,9 +1220,7 @@
   {
    "fieldname": "tipe_property_123",
    "fieldtype": "Data",
-   "in_filter": 1,
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "is_virtual": 1,
    "label": "Tipe Property 123"
   },
@@ -1611,7 +1613,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-09-29 23:41:11.910507",
+ "modified": "2025-10-02 10:30:07.079980",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",
