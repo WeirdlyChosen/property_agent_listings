@@ -1,0 +1,62 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"aCLX9vsNm8\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Property Listing</span>\",\"col\":12}},{\"id\":\"xqsMLmF5FB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Property Listing\",\"col\":3}},{\"id\":\"gRy7sMnTeB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contact\",\"col\":3}},{\"id\":\"5vayExM7tb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Perumahan\",\"col\":3}},{\"id\":\"m1HWhLKaCM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Perumahan Cluster\",\"col\":3}}]",
+ "creation": "2025-10-05 17:38:54.184192",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "retail",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Property Listing",
+ "links": [],
+ "modified": "2025-10-05 17:50:44.893076",
+ "modified_by": "Administrator",
+ "module": "Property Agent Listings",
+ "name": "Property Listing",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 29.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Perumahan",
+   "link_to": "Perumahan",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Contact",
+   "link_to": "Contact",
+   "stats_filter": "[[\"Contact\",\"name\",\"not in\",[\".\",\"/\"],false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Perumahan Cluster",
+   "link_to": "Perumahan Cluster",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Property Listing",
+   "link_to": "Property",
+   "stats_filter": "[[\"Property\",\"available\",\"=\",1,false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Property Listing"
+}
