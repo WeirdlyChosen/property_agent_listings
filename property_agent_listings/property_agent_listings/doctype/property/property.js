@@ -5,7 +5,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Property", {
-	refresh: function (frm) {
+	onload: function (frm) {
 		// -------------------------------------
 		// 1. VARIABLE GENERATION
 		// -------------------------------------
@@ -75,7 +75,7 @@ frappe.ui.form.on("Property", {
 			"https://wa.me/6287731234911" +
 			phone;
 		frm.doc.wa_group_broadcast_text = wa_group_broadcast_text;
-		refresh_field("wa_group_broadcast_text");
+		// // refresh_field("wa_group_broadcast_text");
 
 		let wa_client_broadcast_text =
 			(frm.doc.name || "") +
@@ -95,7 +95,7 @@ frappe.ui.form.on("Property", {
 			"https://wa.me/6287731234911" +
 			phone;
 		frm.doc.wa_client_broadcast_text = wa_client_broadcast_text;
-		refresh_field("wa_client_broadcast_text");
+		// refresh_field("wa_client_broadcast_text");
 
 		let wa_status_or_story =
 			(frm.doc.tipe_property || "") +
@@ -113,90 +113,182 @@ frappe.ui.form.on("Property", {
 			"\n\n" +
 			(frm.doc.name || "");
 		frm.doc.wa_status_or_story = wa_status_or_story;
-		refresh_field("wa_status_or_story");
+
+		// Description generator
+		// write the generator script here.
+		// Description generator
+		// -------------------------------------
+		{
+			const f = frm.doc; // shorthand
+
+			// helper: safe fetch
+			const get = (field) => f[field] || "";
+
+			// Start building the detail description (replicating your GSheet formula)
+			let desc = "";
+
+			// USP
+			if (get("usp")) desc += `${get("usp")}\n`;
+
+			// LT + LxP
+			if (get("luas_tanah")) desc += `LT: ${get("luas_tanah")}m²`;
+			if (get("lxp")) desc += ` --> ${get("lxp")}`;
+			desc += "\n";
+
+			// LB + jml_lantai
+			if (get("luas_bangunan")) {
+				desc += `LB: ${get("luas_bangunan")}m²`;
+				if (get("jumlah_lantai") > 1) desc += ` ${get("jumlah_lantai")} lantai`;
+				desc += "\n";
+			}
+
+			// Kamar tidur
+			if (get("kamar_tidur") || get("kamar_tidur_pembantu")) {
+				desc += "Kamar Tidur: ";
+				desc += get("kamar_tidur") || "";
+				if (get("kamar_tidur_pembantu")) desc += ` + ${get("kamar_tidur_pembantu")}`;
+				desc += "\n";
+			}
+
+			// Kamar mandi
+			if (get("kamar_mandi") || get("kamar_mandi_pembantu")) {
+				desc += "Kamar Mandi: ";
+				desc += get("kamar_mandi") || "";
+				if (get("kamar_mandi_pembantu")) desc += ` + ${get("kamar_mandi_pembantu")}`;
+				desc += "\n";
+			}
+
+			// Garasi
+			if (parseInt(get("garasi")) > 0) desc += `Garasi: ${get("garasi")} mobil\n`;
+
+			// Carport
+			if (parseInt(get("carport")) > 0) desc += `Carport: ${get("carport")} mobil\n`;
+
+			// PLN
+			if (get("daya_listrik")) desc += `PLN: ${get("daya_listrik")} Watt\n`;
+
+			// Air
+			if (get("sumber_air")) desc += `Air: ${get("sumber_air")}\n`;
+
+			// Hadap + hook
+			if (get("hadap")) desc += `Hadap: ${get("hadap")}`;
+			if (get("lokasi_hook") === "Ya") desc += " hook";
+			desc += "\n";
+
+			// Perabotan
+			if (["Full Furnished", "Semi Furnished"].includes(get("kondisi_perabotan")))
+				desc += `${get("kondisi_perabotan")}\n`;
+
+			// Material lantai
+			if (get("material_lantai")) desc += `${get("material_lantai")}\n`;
+
+			// Lebar jalan
+			if (get("lebar_jalan")) {
+				const n = parseInt(get("lebar_jalan"));
+				if (n > 2) {
+					desc += `Jalan lebar! ${n} mobil!\n`;
+				} else {
+					desc += `Row jalan ${n} mobil\n`;
+				}
+			}
+
+			// Harga
+			if (get("harga")) {
+				const harga = parseFloat(get("harga"));
+				desc += "\nHanya ";
+				if (harga / 1_000_000_000 < 1) desc += `${(harga / 1_000_000).toFixed(0)} juta`;
+				else desc += `${(harga / 1_000_000_000).toFixed(2).replace(/\.00$/, "")} M`;
+				desc += "\n";
+			}
+
+			// Assign the generated text
+			frm.doc.detail_listing_generator = desc.trim();
+			refresh_field("detail_listing_generator");
+		}
+		// END Description generator
 
 		// -------------------------------------
 		// 3. R123 TAB (mirror fields)
 		// -------------------------------------
 
 		frm.doc.tipe_property_123 = frm.doc.tipe_property || "";
-		refresh_field("tipe_property_123");
+		// refresh_field("tipe_property_123");
 		frm.doc.harga_123 = frm.doc.harga || "";
-		refresh_field("harga_123");
+		// refresh_field("harga_123");
 		frm.doc.luas_tanah_123 = frm.doc.luas_tanah || "";
-		refresh_field("luas_tanah_123");
+		// refresh_field("luas_tanah_123");
 		frm.doc.luas_bangunan_123 = frm.doc.luas_bangunan || "";
-		refresh_field("luas_bangunan_123");
+		// refresh_field("luas_bangunan_123");
 		frm.doc.kamar_tidur_123 = frm.doc.kamar_tidur || "";
-		refresh_field("kamar_tidur_123");
+		// refresh_field("kamar_tidur_123");
 		frm.doc.kamar_mandi_123 = frm.doc.kamar_mandi || "";
-		refresh_field("kamar_mandi_123");
+		// refresh_field("kamar_mandi_123");
 		frm.doc.kamar_tidur_pembantu_123 = frm.doc.kamar_tidur_pembantu || "";
-		refresh_field("kamar_tidur_pembantu_123");
+		// refresh_field("kamar_tidur_pembantu_123");
 		frm.doc.kamar_mandi_pembantu_123 = frm.doc.kamar_mandi_pembantu || "";
-		refresh_field("kamar_mandi_pembantu_123");
+		// refresh_field("kamar_mandi_pembantu_123");
 		frm.doc.jumlah_lantai_123 = frm.doc.jumlah_lantai || "";
-		refresh_field("jumlah_lantai_123");
+		// refresh_field("jumlah_lantai_123");
 		frm.doc.garasi_123 = frm.doc.garasi || "";
-		refresh_field("garasi_123");
+		// refresh_field("garasi_123");
 		frm.doc.carport_123 = frm.doc.carport || "";
-		refresh_field("carport_123");
+		// refresh_field("carport_123");
 		frm.doc.ruang_tamu_123 = frm.doc.ruang_tamu || "";
-		refresh_field("ruang_tamu_123");
+		// refresh_field("ruang_tamu_123");
 		frm.doc.ruang_makan_123 = frm.doc.ruang_makan || "";
-		refresh_field("ruang_makan_123");
+		// refresh_field("ruang_makan_123");
 		frm.doc.dapur_123 = frm.doc.dapur || "";
-		refresh_field("dapur_123");
+		// refresh_field("dapur_123");
 		frm.doc.lokasi_hook_123 = frm.doc.lokasi_hook || "";
-		refresh_field("lokasi_hook_123");
+		// refresh_field("lokasi_hook_123");
 		frm.doc.sertifikat_123 = frm.doc.sertifikat || "";
-		refresh_field("sertifikat_123");
+		// refresh_field("sertifikat_123");
 		frm.doc.kondisi_property_123 = frm.doc.kondisi_property || "";
-		refresh_field("kondisi_property_123");
+		// refresh_field("kondisi_property_123");
 		frm.doc.kondisi_perabotan_123 = frm.doc.kondisi_perabotan || "";
-		refresh_field("kondisi_perabotan_123");
+		// refresh_field("kondisi_perabotan_123");
 		frm.doc.usp_123 = frm.doc.usp || "";
-		refresh_field("usp_123");
+		// refresh_field("usp_123");
 		frm.doc.fasilitas_123 = frm.doc.fasilitas || "";
-		refresh_field("fasilitas_123");
+		// refresh_field("fasilitas_123");
 		frm.doc.fasilitas_perumahan_123 = frm.doc.fasilitas_perumahan || "";
-		refresh_field("fasilitas_perumahan_123");
+		// refresh_field("fasilitas_perumahan_123");
 		frm.doc.lebar_jalan_123 = frm.doc.lebar_jalan || "";
-		refresh_field("lebar_jalan_123");
+		// refresh_field("lebar_jalan_123");
 		frm.doc.konsep_123 = frm.doc.konsep || "";
-		refresh_field("konsep_123");
+		// refresh_field("konsep_123");
 		frm.doc.pemandangan_123 = frm.doc.pemandangan || "";
-		refresh_field("pemandangan_123");
+		// refresh_field("pemandangan_123");
 		frm.doc.daya_listrik_123 = frm.doc.daya_listrik || "";
-		refresh_field("daya_listrik_123");
+		// refresh_field("daya_listrik_123");
 		frm.doc.tahun_dibangun_123 = frm.doc.tahun_dibangun || "";
-		refresh_field("tahun_dibangun_123");
+		// refresh_field("tahun_dibangun_123");
 		frm.doc.tahun_renovasi_123 = frm.doc.tahun_renovasi || "";
-		refresh_field("tahun_renovasi_123");
+		// refresh_field("tahun_renovasi_123");
 		frm.doc.sumber_air_123 = frm.doc.sumber_air || "";
-		refresh_field("sumber_air_123");
+		// refresh_field("sumber_air_123");
 		frm.doc.material_lantai_123 = frm.doc.material_lantai || "";
-		refresh_field("material_lantai_123");
+		// refresh_field("material_lantai_123");
 		frm.doc.letak_123 = frm.doc.letak || "";
-		refresh_field("letak_123");
+		// refresh_field("letak_123");
 		frm.doc.terjangkau_internet_123 = frm.doc.terjangkau_internet || "";
-		refresh_field("terjangkau_internet_123");
+		// refresh_field("terjangkau_internet_123");
 		frm.doc.timur_123 = frm.doc.timur || "";
-		refresh_field("timur_123");
+		// refresh_field("timur_123");
 		frm.doc.tenggara_123 = frm.doc.tenggara || "";
-		refresh_field("tenggara_123");
+		// refresh_field("tenggara_123");
 		frm.doc.selatan_123 = frm.doc.selatan || "";
-		refresh_field("selatan_123");
+		// refresh_field("selatan_123");
 		frm.doc.barat_daya_123 = frm.doc.barat_daya || "";
-		refresh_field("barat_daya_123");
+		// refresh_field("barat_daya_123");
 		frm.doc.barat_123 = frm.doc.barat || "";
-		refresh_field("barat_123");
+		// refresh_field("barat_123");
 		frm.doc.barat_laut_123 = frm.doc.barat_laut || "";
-		refresh_field("barat_laut_123");
+		// refresh_field("barat_laut_123");
 		frm.doc.utara_123 = frm.doc.utara || "";
-		refresh_field("utara_123");
+		// refresh_field("utara_123");
 		frm.doc.timur_laut_123 = frm.doc.timur_laut || "";
-		refresh_field("timur_laut_123");
+		// refresh_field("timur_laut_123");
 
 		let detail_listing_123 =
 			(frm.doc.name || "") +
@@ -210,7 +302,7 @@ frappe.ui.form.on("Property", {
 			hargaText +
 			"saja!\n\n";
 		frm.doc.detail_listing_123 = detail_listing_123;
-		refresh_field("detail_listing_123");
+		// refresh_field("detail_listing_123");
 	},
 });
 
@@ -281,5 +373,51 @@ Bisa tolong dikirim spek dan fotonya ya. Nanti bisa co broke. Thank you 🙏`;
 
 		// 🔹 Open in new browser tab
 		window.open(wa_url, "_blank");
+	},
+});
+
+frappe.ui.form.on("Property", {
+	perumahan_cluster: function (frm) {
+		if (frm.doc.perumahan_cluster) {
+			frappe.db
+				.get_value("Perumahan Cluster", frm.doc.perumahan_cluster, "perumahan")
+				.then((r) => {
+					if (r && r.message && r.message.perumahan) {
+						frm.set_value("perumahan", r.message.perumahan);
+					} else {
+						frappe.msgprint({
+							title: __("Not Found"),
+							message: __("No Perumahan linked with this Cluster."),
+							indicator: "orange",
+						});
+					}
+				});
+		}
+
+		if (frm.doc.perumahan) {
+			frappe.db.get_value("Perumahan", frm.doc.perumahan, "kota").then((r) => {
+				if (r && r.message && r.message.kota) {
+					frm.set_value("kota", r.message.kota);
+				} else {
+					frappe.msgprint({
+						title: __("Not Found"),
+						message: __("No Kota linked with this Perumahan."),
+						indicator: "orange",
+					});
+				}
+			});
+		}
+	},
+
+	perumahan: function (frm) {
+		// if user picks perumahan directly, fetch kota
+		if (!frm.doc.perumahan) {
+			frm.set_value("kota", "");
+			return;
+		}
+		frappe.db.get_value("Perumahan", frm.doc.perumahan, "kota").then((r) => {
+			const kota = r?.message?.kota || "";
+			frm.set_value("kota", kota);
+		});
 	},
 });

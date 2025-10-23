@@ -103,6 +103,7 @@
   "wa_group_broadcast_text",
   "wa_client_broadcast_text",
   "wa_status_or_story",
+  "detail_listing_generator",
   "r123_view_tab",
   "tipe_property_123",
   "jual_sewa_123",
@@ -715,7 +716,7 @@
   },
   {
    "fieldname": "detail_listing",
-   "fieldtype": "Long Text",
+   "fieldtype": "Small Text",
    "in_filter": 1,
    "in_standard_filter": 1,
    "label": "Detail Listing"
@@ -1610,6 +1611,11 @@
    "fieldname": "media_lamudi_section",
    "fieldtype": "Section Break",
    "label": "Media Lamudi"
+  },
+  {
+   "fieldname": "detail_listing_generator",
+   "fieldtype": "Small Text",
+   "label": "Detail Listing Generator"
   }
  ],
  "grid_page_length": 50,
@@ -1620,8 +1626,8 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-10-21 22:31:36.741210",
- "modified_by": "sampahtj@gmail.com",
+ "modified": "2025-10-23 12:27:51.905062",
+ "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",
  "naming_rule": "Set by user",
