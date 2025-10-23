@@ -116,7 +116,6 @@ frappe.ui.form.on("Property", {
 
 		// Description generator
 		// write the generator script here.
-		// Description generator
 		// -------------------------------------
 		{
 			const f = frm.doc; // shorthand
@@ -190,15 +189,6 @@ frappe.ui.form.on("Property", {
 				} else {
 					desc += `Row jalan ${n} mobil\n`;
 				}
-			}
-
-			// Harga
-			if (get("harga")) {
-				const harga = parseFloat(get("harga"));
-				desc += "\nHanya ";
-				if (harga / 1_000_000_000 < 1) desc += `${(harga / 1_000_000).toFixed(0)} juta`;
-				else desc += `${(harga / 1_000_000_000).toFixed(2).replace(/\.00$/, "")} M`;
-				desc += "\n";
 			}
 
 			// Assign the generated text
