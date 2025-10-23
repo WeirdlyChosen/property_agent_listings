@@ -63,38 +63,20 @@ class Property(WebsiteGenerator):
 
 		self.alamat_property = "".join(parts).strip()
 
-	@frappe.whitelist(allow_guest=True)
-	def update_main_photo(docname, folderID, filename, mainphotolink):
-		"""
-		Webhook endpoint to update the 'gambar_utama' (main photo) in Property doctype.
-		Expected payload:
-			{
-				"docname": "PROP-00045",
-				"folderID": "1a2b3c4d5e6f",
-				"filename": "main_front.jpg",
-				"mainphotolink": "https://lh3.googleusercontent.com/d/1abcXYZ"
-			}
-		"""
 
-		# 1️⃣ Validate Property exists
-		if not frappe.db.exists("Property", docname):
-			frappe.throw(_("Property {0} not found").format(docname))
+@frappe.whitelist()
+def update_main_photo(docname=None, filename=None, mainphotolink=None):
+	try:
+		# log_data = {
+		#     "docname": docname,
+		#     "filename": filename,
+		#     "mainphotolink": mainphotolink
+		# }
+		# frappe.log_error(message=str(log_data), title="update_main_photo: received data")
 
-		property_doc = frappe.get_doc("Property", docname)
+		if not filename or not mainphotolink:
+			frappe.throw(f"Missing filename or mainphotolink: {filename=} {mainphotolink=}")
 
-		# 2️⃣ Store the folder ID if field exists
-		if hasattr(property_doc, "google_drive_folder"):
-			property_doc.google_drive_folder = folderID
-
-		# 3️⃣ Optionally remove old attached File if you want to replace it
-		if property_doc.gambar_utama:
-			old_file = frappe.db.get_value(
-				"File", {"file_url": property_doc.gambar_utama, "attached_to_name": docname}, "name"
-			)
-			if old_file:
-				frappe.delete_doc("File", old_file, ignore_permissions=True)
-
-		# 4️⃣ Create new File doc (public link)
 		file_doc = frappe.get_doc(
 			{
 				"doctype": "File",
@@ -105,17 +87,15 @@ class Property(WebsiteGenerator):
 				"is_private": 0,
 			}
 		)
+
+		frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: before insert")
+
 		file_doc.insert(ignore_permissions=True)
 
-		# 5️⃣ Update Property.gambar_utama (Attach type field)
-		property_doc.gambar_utama = file_doc.file_url
-		property_doc.save(ignore_permissions=True)
-		frappe.db.commit()
+		frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: success")
 
-		return {
-			"status": "success",
-			"property": docname,
-			"filename": filename,
-			"file_url": file_doc.file_url,
-			"folderID": folderID,
-		}
+		return {"status": "success", "file_name": file_doc.name}
+
+	except Exception as e:
+		frappe.log_error(title="update_main_photo failed", message=frappe.get_traceback())
+		frappe.throw(f"update_main_photo failed: {e!s}")
