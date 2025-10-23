@@ -67,8 +67,8 @@ class Property(WebsiteGenerator):
 @frappe.whitelist()
 def update_main_photo(docname=None, filename=None, mainphotolink=None):
 	try:
-		log_data = {"docname": docname, "filename": filename, "mainphotolink": mainphotolink}
-		frappe.log_error(message=str(log_data), title="update_main_photo: received data")
+		# log_data = {"docname": docname, "filename": filename, "mainphotolink": mainphotolink}
+		# frappe.log_error(message=str(log_data), title="update_main_photo: received data")
 
 		if not docname or not filename or not mainphotolink:
 			frappe.throw(f"Missing parameter: {docname=} {filename=} {mainphotolink=}")
@@ -87,10 +87,10 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None):
 				"is_private": 0,
 			}
 		)
-		frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: before insert")
+		# frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: before insert")
 
 		file_doc.insert(ignore_permissions=True)
-		frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: after insert")
+		# frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: after insert")
 
 		# --- manually update File.attached_to_field (simulating Attach Image UI behavior) ---
 		frappe.db.set_value("File", file_doc.name, "attached_to_field", "gambar_utama")
@@ -102,17 +102,17 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None):
 		property_doc.save(ignore_permissions=True)
 		frappe.db.commit()
 
-		frappe.log_error(
-			message={
-				"gambar_utama": property_doc.gambar_utama,
-				"file_url": file_doc.file_url,
-				"file_name": file_doc.name,
-			},
-			title="update_main_photo: success",
-		)
+		# frappe.log_error(
+		# 	message={
+		# 		"gambar_utama": property_doc.gambar_utama,
+		# 		"file_url": file_doc.file_url,
+		# 		"file_name": file_doc.name,
+		# 	},
+		# 	title="update_main_photo: success",
+		# )
 
 		return {"status": "success", "file_name": file_doc.name, "gambar_utama": property_doc.gambar_utama}
 
 	except Exception as e:
-		frappe.log_error(title="update_main_photo failed", message=frappe.get_traceback())
+		# frappe.log_error(title="update_main_photo failed", message=frappe.get_traceback())
 		frappe.throw(f"update_main_photo failed: {e!s}")
