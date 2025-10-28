@@ -85,11 +85,11 @@ frappe.ui.form.on("Property", {
 			"\n\n" +
 			(frm.doc.detail_listing || "") +
 			"\n\n" +
-			(fotoText || "") +
-			(videoText || "") +
 			"Hanya " +
 			hargaText +
 			"saja!\n\n" +
+			(fotoText || "") +
+			(videoText || "") +
 			footerText +
 			"\n" +
 			"https://wa.me/6287731234911" +
