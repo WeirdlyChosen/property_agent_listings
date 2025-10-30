@@ -785,6 +785,7 @@
    "permlevel": 1
   },
   {
+   "depends_on": "eval:doc.google_drive_folder;",
    "fieldname": "google_drive_link",
    "fieldtype": "Button",
    "is_virtual": 1,
@@ -1626,7 +1627,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-10-26 17:00:07.907917",
+ "modified": "2025-10-31 01:14:28.252441",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",
