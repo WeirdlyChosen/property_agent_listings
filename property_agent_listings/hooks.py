@@ -5,6 +5,13 @@ app_description = "Listing Management app for property agents where agents can s
 app_email = "connect@homeautomator.id"
 app_license = "agpl-3.0"
 
+doc_events = {
+	"Contact": {
+		"validate": "property_agent_listings.api.contact.fill_gender",
+	}
+}
+
+
 # Apps
 # ------------------
 

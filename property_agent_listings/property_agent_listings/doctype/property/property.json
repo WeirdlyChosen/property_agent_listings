@@ -646,7 +646,7 @@
    "fieldname": "kondisi_property",
    "fieldtype": "Select",
    "label": "Kondisi property",
-   "options": "Baru\nBagus\nBagus Sekali\nButuh Renovasi\nSudah Renovasi"
+   "options": "\nBaru\nBagus\nBagus Sekali\nButuh Renovasi\nSudah Renovasi"
   },
   {
    "default": "0",
@@ -1627,7 +1627,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-10-31 01:14:28.252441",
+ "modified": "2025-11-03 18:39:35.322458",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",

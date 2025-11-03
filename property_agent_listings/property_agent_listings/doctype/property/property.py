@@ -65,10 +65,20 @@ class Property(WebsiteGenerator):
 
 
 @frappe.whitelist()
-def update_main_photo(docname=None, filename=None, mainphotolink=None):
+def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=None):
 	try:
-		# log_data = {"docname": docname, "filename": filename, "mainphotolink": mainphotolink}
-		# frappe.log_error(message=str(log_data), title="update_main_photo: received data")
+		# --- log received data for debugging ---
+		frappe.log_error(
+			title="update_main_photo: received JSON",
+			message=frappe.as_json(
+				{
+					"docname": docname,
+					"filename": filename,
+					"mainphotolink": mainphotolink,
+					"folderid": folderid,
+				}
+			),
+		)
 
 		if not docname or not filename or not mainphotolink:
 			frappe.throw(f"Missing parameter: {docname=} {filename=} {mainphotolink=}")
@@ -87,32 +97,52 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None):
 				"is_private": 0,
 			}
 		)
-		# frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: before insert")
-
 		file_doc.insert(ignore_permissions=True)
-		# frappe.log_error(message=file_doc.as_dict(), title="update_main_photo: after insert")
 
 		# --- manually update File.attached_to_field (simulating Attach Image UI behavior) ---
 		frappe.db.set_value("File", file_doc.name, "attached_to_field", "gambar_utama")
 		frappe.db.commit()
 
-		# --- update Property field value ---
+		# --- load the Property document ---
 		property_doc = frappe.get_doc("Property", docname)
+
+		# --- update google_drive_folder if empty and folderid provided ---
+		if (
+			not property_doc.google_drive_folder or property_doc.google_drive_folder.strip() == ""
+		) and folderid:
+			property_doc.google_drive_folder = folderid
+
+		# --- update Gambar Utama field value ---
 		property_doc.gambar_utama = file_doc.file_url
+
+		# --- save Property document ---
 		property_doc.save(ignore_permissions=True)
 		frappe.db.commit()
 
-		# frappe.log_error(
-		# 	message={
-		# 		"gambar_utama": property_doc.gambar_utama,
-		# 		"file_url": file_doc.file_url,
-		# 		"file_name": file_doc.name,
-		# 	},
-		# 	title="update_main_photo: success",
-		# )
+		# --- log success into Error Log for debugging ---
+		frappe.log_error(
+			title="update_main_photo: success",
+			message=frappe.as_json(
+				{
+					"docname": docname,
+					"file_name": file_doc.file_name,
+					"file_url": file_doc.file_url,
+					"gambar_utama": property_doc.gambar_utama,
+					"google_drive_folder": property_doc.google_drive_folder,
+				}
+			),
+		)
 
-		return {"status": "success", "file_name": file_doc.name, "gambar_utama": property_doc.gambar_utama}
+		return {
+			"status": "success",
+			"file_name": file_doc.name,
+			"gambar_utama": property_doc.gambar_utama,
+			"google_drive_folder": property_doc.google_drive_folder,
+		}
 
 	except Exception as e:
-		# frappe.log_error(title="update_main_photo failed", message=frappe.get_traceback())
+		frappe.log_error(
+			title="update_main_photo: failed",
+			message=frappe.get_traceback(),
+		)
 		frappe.throw(f"update_main_photo failed: {e!s}")
