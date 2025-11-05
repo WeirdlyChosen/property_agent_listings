@@ -24,7 +24,7 @@ frappe.ui.form.on("Property", {
 			if (frm.doc.harga / 1000000000 >= 1) {
 				hargaText = (frm.doc.harga / 1000000000).toFixed(2).replace(/\.00$/, "") + "M ";
 			} else {
-				hargaText = (frm.doc.harga / 1000000).toFixed(0) + " juta |";
+				hargaText = (frm.doc.harga / 1000000).toFixed(0) + " juta ";
 			}
 		}
 
