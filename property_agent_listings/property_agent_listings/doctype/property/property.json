@@ -1627,7 +1627,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-11-03 18:39:35.322458",
+ "modified": "2025-11-03 19:03:31.215438",
  "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",
@@ -1700,7 +1700,6 @@
  ],
  "route": "listings",
  "row_format": "Dynamic",
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [
@@ -1708,6 +1707,5 @@
    "color": "Red",
    "title": "Sold"
   }
- ],
- "title_field": "kode"
+ ]
 }

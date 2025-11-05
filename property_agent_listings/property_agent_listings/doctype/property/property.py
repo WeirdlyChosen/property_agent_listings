@@ -67,18 +67,20 @@ class Property(WebsiteGenerator):
 @frappe.whitelist()
 def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=None):
 	try:
-		# --- log received data for debugging ---
-		frappe.log_error(
-			title="update_main_photo: received JSON",
-			message=frappe.as_json(
-				{
-					"docname": docname,
-					"filename": filename,
-					"mainphotolink": mainphotolink,
-					"folderid": folderid,
-				}
-			),
-		)
+		## --- get full request data for logging---
+		# import json
+
+		# try:
+		# 	full_json = frappe.local.form_dict  # includes all parameters sent in POST
+		# 	full_json_str = json.dumps(full_json, indent=2, default=str)
+		# except Exception:
+		# 	full_json_str = "Could not parse frappe.local.form_dict"
+
+		## --- log the complete raw JSON ---
+		# frappe.log_error(
+		# 	title="update_main_photo: FULL JSON RECEIVED",
+		# 	message=full_json_str,
+		# )
 
 		if not docname or not filename or not mainphotolink:
 			frappe.throw(f"Missing parameter: {docname=} {filename=} {mainphotolink=}")
@@ -120,18 +122,18 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=
 		frappe.db.commit()
 
 		# --- log success into Error Log for debugging ---
-		frappe.log_error(
-			title="update_main_photo: success",
-			message=frappe.as_json(
-				{
-					"docname": docname,
-					"file_name": file_doc.file_name,
-					"file_url": file_doc.file_url,
-					"gambar_utama": property_doc.gambar_utama,
-					"google_drive_folder": property_doc.google_drive_folder,
-				}
-			),
-		)
+		# frappe.log_error(
+		# 	title="update_main_photo: success",
+		# 	message=frappe.as_json(
+		# 		{
+		# 			"docname": docname,
+		# 			"file_name": file_doc.file_name,
+		# 			"file_url": file_doc.file_url,
+		# 			"gambar_utama": property_doc.gambar_utama,
+		# 			"google_drive_folder": property_doc.google_drive_folder,
+		# 		}
+		# 	),
+		# )
 
 		return {
 			"status": "success",
