@@ -1,7 +1,281 @@
 {% extends "templates/web.html" %}
 
-{% block page_content %}
-<h1>{{ title }}</h1>
+{% block title %}{{ doc.judul_listing }} – Ray White{% endblock %}
+
+{% block head %}
+    {{ super() }}
+<!-- SEO & Social Preview -->
+<meta name="description" content="{{ (doc.detail_listing or '')[:150] }}">
+<meta property="og:title" content="{{ doc.judul_listing }}">
+<meta property="og:description" content="{{ (doc.detail_listing or '')[:150] }}">
+<meta property="og:image"
+      content="https://property.homeautomator.id/api/method/property_agent_listings.api.website.proxy_gdrive?url={{ doc.gambar_utama }}">
+<meta property="og:image:secure_url" content="https://property.homeautomator.id/api/method/property_agent_listings.api.website.proxy_gdrive?url={{ doc.gambar_utama }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:type" content="website">
+<meta property="twitter:card" content="summary_large_image">
+
+<style>
+	:root {
+		--yellow: #FDD835;
+		--dark: #2C2C2C;
+		--gray: #888;
+		--font: "Roboto", sans-serif;
+	}
+
+	body { font-family: var(--font); background:#fff; }
+	.container { max-width: 960px; margin:auto; padding:16px; }
+
+	/* HERO IMAGE */
+	.hero {
+		width:100%; border-radius:12px; overflow:hidden;
+		max-height:420px; object-fit:cover;
+	}
+
+	.heading {
+		font-size:26px; font-weight:700; margin-top:18px; color:var(--dark);
+	}
+
+	.price-box {
+		background:var(--yellow);
+		padding:14px 16px; border-radius:10px;
+		margin-top:10px;
+		font-size:22px; font-weight:700; color:#000;
+	}
+
+	.section-title {
+		font-size:20px; font-weight:700;
+		margin-top:30px; color:var(--dark);
+		border-left:6px solid var(--yellow);
+		padding-left:10px;
+	}
+
+	.spec-grid {
+		display:grid;
+		grid-template-columns:1fr 1fr;
+		gap:10px;
+		margin-top:18px;
+	}
+
+	.spec-item {
+		background:#fafafa;
+		padding:12px;
+		border-radius:6px;
+		font-size:15px;
+	}
+
+	/* AGENT CARD */
+	.agent-card {
+		display:flex;
+		gap:15px;
+		background:#fafafa;
+		padding:15px;
+		border-radius:10px;
+		margin-top:30px;
+		align-items:center;
+	}
+
+	.agent-card img {
+		width:80px; height:80px; border-radius:50%; object-fit:cover;
+	}
+
+	.whatsapp-btn {
+		background:#25D366;
+		color:white;
+		padding:12px 18px;
+		display:inline-block;
+		margin-top:15px;
+		border-radius:8px;
+		font-size:18px;
+		text-decoration:none;
+		text-align:center;
+	}
+
+    .responsive-iframe {
+        position: relative;
+        padding-bottom: 70%;
+        height: 0;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .responsive-iframe iframe {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
 {% endblock %}
 
-<!-- this is a sample default web page template -->
+{% block page_content %}
+<div class="container">
+
+	<!-- HERO IMAGE -->
+	<img class="hero" src="{{ doc.gambar_utama or '/files/default-image.jpg' }}">
+
+	<!-- TITLE -->
+	<div class="heading">{{ doc.judul_listing }}</div>
+
+	<!-- PRICE -->
+	<div class="price-box">
+		{{ frappe.utils.fmt_money(doc.harga, 0).replace(',', '.') }}
+		{% if doc.jual_sewa == "Disewakan" %}
+			<span style="font-size:16px; font-weight:400;">/ {{ doc.periode_sewa }}</span>
+		{% endif %}
+	</div>
+
+	<!-- SPECIFICATIONS -->
+<div class="section-title">Informasi Properti</div>
+
+<div class="spec-grid">
+
+	{# Lokasi #}
+	{% if doc.perumahan or doc.kota %}
+	<div class="spec-item">
+		📍 <b>Lokasi</b>:
+		{{ doc.perumahan }}{% if doc.kota %} – {{ doc.kota }}{% endif %}
+	</div>
+	{% endif %}
+
+	{# LT + LxP #}
+	{% if doc.luas_tanah %}
+	<div class="spec-item">
+		📐 <b>LT</b>: {{ doc.luas_tanah }} m²
+		{% if doc.lxp %} → {{ doc.lxp }}{% endif %}
+	</div>
+	{% endif %}
+
+	{# LB + lantai #}
+	{% if doc.luas_bangunan %}
+	<div class="spec-item">
+		🏠 <b>LB</b>: {{ doc.luas_bangunan }} m²
+		{% if doc.jumlah_lantai and doc.jumlah_lantai > 1 %}
+			– {{ doc.jumlah_lantai }} lantai
+		{% endif %}
+	</div>
+	{% endif %}
+
+	{# KT #}
+	{% if doc.kamar_tidur or doc.kamar_tidur_pembantu %}
+	<div class="spec-item">
+		🛏 <b>Kamar Tidur</b>:
+		{{ doc.kamar_tidur }}
+		{% if doc.kamar_tidur_pembantu %}+ {{ doc.kamar_tidur_pembantu }}{% endif %}
+	</div>
+	{% endif %}
+
+	{# KM #}
+	{% if doc.kamar_mandi or doc.kamar_mandi_pembantu %}
+	<div class="spec-item">
+		🛁 <b>Kamar Mandi</b>:
+		{{ doc.kamar_mandi }}
+		{% if doc.kamar_mandi_pembantu %}+ {{ doc.kamar_mandi_pembantu }}{% endif %}
+	</div>
+	{% endif %}
+
+	{# Garasi #}
+	{% if doc.garasi %}
+	<div class="spec-item">
+		🚗 <b>Garasi</b>: {{ doc.garasi }} mobil
+	</div>
+	{% endif %}
+
+	{# Carport #}
+	{% if doc.carport %}
+	<div class="spec-item">
+		🚗 <b>Carport</b>: {{ doc.carport }} mobil
+	</div>
+	{% endif %}
+
+	{# Listrik #}
+	{% if doc.daya_listrik %}
+	<div class="spec-item">
+		⚡ <b>PLN</b>: {{ doc.daya_listrik }} Watt
+	</div>
+	{% endif %}
+
+	{# Air #}
+	{% if doc.sumber_air %}
+	<div class="spec-item">
+		💧 <b>Air</b>: {{ doc.sumber_air }}
+	</div>
+	{% endif %}
+
+	{# Hadap + Hook #}
+	{% if doc.hadap or doc.lokasi_hook == "Ya" %}
+	<div class="spec-item">
+		🧭 <b>Hadap</b>:
+		{{ doc.hadap }}
+		{% if doc.lokasi_hook == "Ya" %} hook{% endif %}
+	</div>
+	{% endif %}
+
+	{# Furnished only for Semi/Full #}
+	{% if doc.kondisi_perabotan in ["Full Furnished", "Semi Furnished"] %}
+	<div class="spec-item">
+		🛋 <b>Perabotan</b>: {{ doc.kondisi_perabotan }}
+	</div>
+	{% endif %}
+
+	{# Material lantai #}
+	{% if doc.material_lantai %}
+	<div class="spec-item">
+		🪵 <b>Lantai</b>: {{ doc.material_lantai }}
+	</div>
+	{% endif %}
+
+	{# Lebar jalan #}
+	{% if doc.lebar_jalan %}
+	<div class="spec-item">
+		🚘 <b>Lebar Jalan</b>: {{ doc.lebar_jalan }} mobil
+	</div>
+	{% endif %}
+
+	{# Sertifikat #}
+	{% if doc.sertifikat %}
+	<div class="spec-item">
+		📄 <b>Sertifikat</b>: {{ doc.sertifikat }}
+	</div>
+	{% endif %}
+
+</div>
+<!-- END SPECIFICATIONS -->
+
+
+	<!-- DESCRIPTION -->
+	<div class="section-title">Deskripsi</div>
+	<p style="margin-top:12px; white-space:pre-line;">
+		{{ doc.detail_listing }}
+	</p>
+
+	<!-- GOOGLE DRIVE GALLERY -->
+	{% if doc.google_drive_folder %}
+<div class="section-title">Galeri Foto</div>
+<br>
+<div class="responsive-iframe">
+    <iframe 
+        src="https://drive.google.com/embeddedfolderview?id={{ doc.google_drive_folder }}#grid"
+        frameborder="0">
+    </iframe>
+</div>
+{% endif %}
+
+
+	<!-- AGENT CARD -->
+	<div class="section-title">Hubungi Agen</div>
+	<div class="agent-card">
+		<img src="/files/Foto Joe.jpg">
+		<div>
+			<div style="font-size:18px; font-weight:700;">Joe</div>
+			<div style="font-size:15px; color:var(--gray);">Ray White TPI Wiyung</div>
+			<div style="margin-top:5px;">📞 08 773 1234 911</div>
+			<a class="whatsapp-btn" href="https://wa.me/6287731234911?text=Halo%20saya%20tertarik%20dengan%20listing%20{{ doc.kode }}">
+				Chat WhatsApp
+			</a>
+		</div>
+	</div>
+
+</div>
+{% endblock %}

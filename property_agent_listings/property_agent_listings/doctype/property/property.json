@@ -1146,7 +1146,7 @@
   {
    "fieldname": "blok_perumahan",
    "fieldtype": "Data",
-   "label": "Blok Perumahan",
+   "label": "Blok Perumahan / Lantai",
    "permlevel": 1,
    "print_hide": 1,
    "report_hide": 1
@@ -1154,7 +1154,7 @@
   {
    "fieldname": "nomor_rumah",
    "fieldtype": "Data",
-   "label": "Nomor Rumah",
+   "label": "Nomor Rumah / Unit",
    "permlevel": 1,
    "print_hide": 1,
    "report_hide": 1
@@ -1627,8 +1627,8 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-11-03 19:03:31.215438",
- "modified_by": "Administrator",
+ "modified": "2025-11-19 13:10:03.486122",
+ "modified_by": "sampahtj@gmail.com",
  "module": "Property Agent Listings",
  "name": "Property",
  "naming_rule": "Set by user",

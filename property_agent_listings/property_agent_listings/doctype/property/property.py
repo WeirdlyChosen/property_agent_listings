@@ -63,6 +63,27 @@ class Property(WebsiteGenerator):
 
 		self.alamat_property = "".join(parts).strip()
 
+	def get_context(self, context=None):
+		context = context or {}
+		context["doc"] = self
+
+		# Correct meta
+		context["meta"] = {
+			"title": self.judul_listing or self.name,
+			"description": self.description or "",
+			"image": self.gambar_utama or "",
+		}
+
+		# Inject logged-in user
+		if frappe.session.user != "Guest":
+			user_doc = frappe.get_doc("User", frappe.session.user)
+			context["user"] = {
+				"name": user_doc.full_name,
+				"user_image": user_doc.user_image,
+			}
+
+		return context
+
 
 @frappe.whitelist()
 def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=None):

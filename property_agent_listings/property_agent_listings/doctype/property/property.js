@@ -41,9 +41,9 @@ frappe.ui.form.on("Property", {
 		let fotoText = "";
 		if (frm.doc.google_drive_folder) {
 			fotoText =
-				"📷Foto: https://drive.google.com/embeddedfolderview?id=" +
-				frm.doc.google_drive_folder +
-				"#grid" +
+				"📷Foto: https://" +
+				frappe.boot.sitename +
+				(frm.doc.route ? "/" + frm.doc.route : "") +
 				"\n\n";
 		}
 
@@ -279,7 +279,7 @@ frappe.ui.form.on("Property", {
 		// refresh_field("utara_123");
 		frm.doc.timur_laut_123 = frm.doc.timur_laut || "";
 		// refresh_field("timur_laut_123");
-
+		let judul_listing_123 = frm.doc.judul_listing || "";
 		let detail_listing_123 =
 			(frm.doc.name || "") +
 			isLelang +
