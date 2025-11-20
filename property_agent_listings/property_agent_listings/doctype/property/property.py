@@ -70,7 +70,7 @@ class Property(WebsiteGenerator):
 		# Correct meta
 		context["meta"] = {
 			"title": self.judul_listing or self.name,
-			"description": self.description or "",
+			"description": self.detail_listing or "",
 			"image": self.gambar_utama or "",
 		}
 
