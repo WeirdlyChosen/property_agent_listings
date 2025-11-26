@@ -5,12 +5,13 @@
 {% block head %}
     {{ super() }}
 <!-- SEO & Social Preview -->
+{% set og_image_url = frappe.utils.get_url("/api/method/property_agent_listings.api.website.proxy_gdrive?url=" ~ doc.gambar_utama) %}
 <meta name="description" content="{{ (doc.detail_listing or '')[:150] }}">
 <meta property="og:title" content="{{ doc.judul_listing }}">
 <meta property="og:description" content="{{ (doc.detail_listing or '')[:150] }}">
 <meta property="og:image"
-      content="/api/method/property_agent_listings.api.website.proxy_gdrive?url={{ doc.gambar_utama }}">
-<meta property="og:image:secure_url" content="/api/method/property_agent_listings.api.website.proxy_gdrive?url={{ doc.gambar_utama }}">
+      content="{{ og_image_url }}">
+<meta property="og:image:secure_url" content="{{ og_image_url }}">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:type" content="website">
 <meta property="twitter:card" content="summary_large_image">
@@ -271,7 +272,7 @@
 			<div style="font-size:18px; font-weight:700;">Joe</div>
 			<div style="font-size:15px; color:var(--gray);">Ray White TPI Wiyung</div>
 			<div style="margin-top:5px;">📞 08 773 1234 911</div>
-			<a class="whatsapp-btn" href="https://wa.me/6287731234911?text=Halo%20saya%20tertarik%20dengan%20listing%20{{ doc.kode }}">
+			<a class="whatsapp-btn" href="https://wa.me/6287731234911?text=Halo saya tertarik dengan listing {{ doc.name }}%0A{{ frappe.utils.get_url() }}/{{ doc.route }}">
 				Chat WhatsApp
 			</a>
 		</div>

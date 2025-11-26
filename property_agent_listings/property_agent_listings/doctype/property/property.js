@@ -4,68 +4,241 @@
 // Copyright (c) 2025, HomeAutomator and contributors
 // For license information, please see license.txt
 
+// ---------------------------
+// Property Form Logic
+// ---------------------------
 frappe.ui.form.on("Property", {
-	onload: function (frm) {
-		// -------------------------------------
-		// 1. VARIABLE GENERATION
-		// -------------------------------------
+	//----------------------------------------------------------
+	// FIELD CHANGE TRIGGERS
+	//----------------------------------------------------------
+	// --- Fields that trigger rebuild_copywriting ---
+	usp(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "usp");
+	},
+	luas_tanah(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "luas_tanah");
+	},
+	lxp(frm) {
+		frm.trigger("rebuild_copywriting");
+	},
+	luas_bangunan(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "luas_bangunan");
+	},
+	jumlah_lantai(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "jumlah_lantai");
+	},
+	kamar_tidur(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "kamar_tidur");
+	},
+	kamar_tidur_pembantu(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "kamar_tidur_pembantu");
+	},
+	kamar_mandi(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "kamar_mandi");
+	},
+	kamar_mandi_pembantu(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "kamar_mandi_pembantu");
+	},
+	garasi(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "garasi");
+	},
+	carport(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "carport");
+	},
+	daya_listrik(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "daya_listrik");
+	},
+	sumber_air(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "sumber_air");
+	},
 
-		let isLelang = "";
-		if (
-			(frm.doc.description || "").toLowerCase().includes("aset macet") ||
-			(frm.doc.description || "").toLowerCase().includes("lelang") ||
-			(frm.doc.description || "").toLowerCase().includes("no viewing")
-		) {
-			isLelang = "-L";
-		}
+	timur(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "timur");
+	},
+	tenggara(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "tenggara");
+	},
+	selatan(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "selatan");
+	},
+	barat_daya(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "barat_daya");
+	},
+	barat(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "barat");
+	},
+	barat_laut(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "barat_laut");
+	},
+	utara(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "utara");
+	},
+	timur_laut(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "timur_laut");
+	},
+
+	lokasi_hook(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "lokasi_hook");
+	},
+	kondisi_perabotan(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "kondisi_perabotan");
+	},
+	material_lantai(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "material_lantai");
+	},
+	lebar_jalan(frm) {
+		frm.trigger("rebuild_copywriting");
+		frm.trigger("mirror", "lebar_jalan");
+	},
+
+	// --- Remaining fields that should only trigger mirror ---
+	cobroke(frm) {
+		frm.trigger("mirror", "cobroke");
+	},
+	konsep(frm) {
+		frm.trigger("mirror", "konsep");
+	},
+	kota(frm) {
+		frm.trigger("mirror", "kota");
+	},
+	kecamatan_name(frm) {
+		frm.trigger("mirror", "kecamatan_name");
+	},
+	provinsi(frm) {
+		frm.trigger("mirror", "provinsi");
+	},
+	ruang_makan(frm) {
+		frm.trigger("mirror", "ruang_makan");
+	},
+	ruang_tamu(frm) {
+		frm.trigger("mirror", "ruang_tamu");
+	},
+	fasilitas(frm) {
+		frm.trigger("mirror", "fasilitas");
+	},
+	fasilitas_perumahan(frm) {
+		frm.trigger("mirror", "fasilitas_perumahan");
+	},
+	tahun_dibangun(frm) {
+		frm.trigger("mirror", "tahun_dibangun");
+	},
+	tahun_renovasi(frm) {
+		frm.trigger("mirror", "tahun_renovasi");
+	},
+	letak(frm) {
+		frm.trigger("mirror", "letak");
+	},
+	terjangkau_internet(frm) {
+		frm.trigger("mirror", "terjangkau_internet");
+	},
+	sertifikat(frm) {
+		frm.trigger("mirror", "sertifikat");
+	},
+	kondisi_property(frm) {
+		frm.trigger("mirror", "kondisi_property");
+	},
+	youtube_link(frm) {
+		frm.trigger("mirror", "youtube_link");
+	},
+	google_drive_link(frm) {
+		frm.trigger("mirror", "google_drive_link");
+	},
+	nama_jalan(frm) {
+		frm.trigger("mirror", "nama_jalan");
+	},
+	blok_perumahan(frm) {
+		frm.trigger("mirror", "blok_perumahan");
+	},
+	nomor_rumah(frm) {
+		frm.trigger("mirror", "nomor_rumah");
+	},
+	video(frm) {
+		frm.trigger("mirror", "video");
+	},
+
+	//----------------------------------------------------------
+	// MIRROR LOGIC (_123 & _lamudi)
+	//----------------------------------------------------------
+	mirror(frm, fieldname) {
+		const value = frm.doc[fieldname] || "";
+
+		const f123 = `${fieldname}_123`;
+		const flamudi = `${fieldname}_lamudi`;
+
+		if (f123 in frm.doc) frm.set_value(f123, value);
+		if (flamudi in frm.doc) frm.set_value(flamudi, value);
+	},
+
+	//----------------------------------------------------------
+	// COPYWRITING BUILDER
+	//----------------------------------------------------------
+	build_copywriting(frm) {
+		const f = frm.doc;
+
+		//------------------------------------------------------
+		// existing helpers rebuilt cleanly
+		//------------------------------------------------------
+		const isLelang = (f.description || "").toLowerCase().match(/aset macet|lelang|no viewing/)
+			? "-L"
+			: "";
 
 		let hargaText = "";
-		if (frm.doc.harga) {
-			if (frm.doc.harga / 1000000000 >= 1) {
-				hargaText = (frm.doc.harga / 1000000000).toFixed(2).replace(/\.00$/, "") + "M ";
-			} else {
-				hargaText = (frm.doc.harga / 1000000).toFixed(0) + " juta ";
-			}
+		if (f.harga) {
+			hargaText =
+				f.harga >= 1_000_000_000
+					? (f.harga / 1_000_000_000).toFixed(2).replace(/\.00$/, "") + "M "
+					: (f.harga / 1_000_000).toFixed(0) + " juta ";
 		}
 
-		let perMeterText = "";
-		if (frm.doc.permeter) {
-			perMeterText = "\n" + Math.floor(frm.doc.permeter / 1000000) + " jutaan per meter!";
-		}
+		const perMeterText = f.permeter
+			? "\n" + Math.floor(f.permeter / 1_000_000) + " jutaan per meter!"
+			: "";
+		const lantaiText = f.jumlah_lantai > 1 ? " | " + f.jumlah_lantai + " Lantai" : "";
 
-		let lantaiText = "";
-		if (frm.doc.jml_lantai && frm.doc.jml_lantai > 1) {
-			lantaiText = " | " + frm.doc.jml_lantai + " Lantai";
-		}
+		const fotoText = f.google_drive_folder
+			? "📷Foto: https://" + frappe.boot.sitename + (f.route ? "/" + f.route : "") + "\n\n"
+			: "";
 
-		let fotoText = "";
-		if (frm.doc.google_drive_folder) {
-			fotoText =
-				"📷Foto: https://" +
-				frappe.boot.sitename +
-				(frm.doc.route ? "/" + frm.doc.route : "") +
-				"\n\n";
-		}
+		const videoText = f.youtube_link ? "🎥Video: " + f.youtube_link + "\n\n" : "";
 
-		let videoText = "";
-		if (frm.doc.youtube_link) {
-			videoText = "🎥Video: " + frm.doc.youtube_link + "\n\n";
-		}
+		const footerText = "Joe\nRay White TPI Wiyung";
+		const phone = frappe.boot.user?.phone || "";
 
-		let footerText = "Joe\nRay White TPI Wiyung";
-		let phone = frappe.boot.user ? frappe.boot.user.phone || "" : "";
+		//------------------------------------------------------
+		// BUILD FIELDS
+		//------------------------------------------------------
 
-		// -------------------------------------
-		// 2. COPYWRITING TAB
-		// -------------------------------------
-
-		let wa_group_broadcast_text =
-			(frm.doc.name || "") +
+		//frm.set_value("wa_group_broadcast_text",
+		frm.doc.wa_group_broadcast_text =
+			(f.name || "") +
 			isLelang +
 			"\n\n" +
-			(frm.doc.judul_listing || "") +
+			(f.judul_listing || "") +
 			"\n\n" +
-			(frm.doc.detail_listing || "") +
+			(f.detail_listing || "") +
 			"\n\n" +
 			"Hanya " +
 			hargaText +
@@ -74,36 +247,34 @@ frappe.ui.form.on("Property", {
 			"\n" +
 			"https://wa.me/6287731234911" +
 			phone;
-		frm.doc.wa_group_broadcast_text = wa_group_broadcast_text;
-		// // refresh_field("wa_group_broadcast_text");
 
-		let wa_client_broadcast_text =
-			(frm.doc.name || "") +
+		// frm.set_value("wa_client_broadcast_text",
+		frm.doc.wa_client_broadcast_text =
+			(f.name || "") +
 			isLelang +
 			"\n\n" +
-			(frm.doc.judul_listing || "") +
+			(f.judul_listing || "") +
 			"\n\n" +
-			(frm.doc.detail_listing || "") +
+			(f.detail_listing || "") +
 			"\n\n" +
 			"Hanya " +
 			hargaText +
 			"saja!\n\n" +
-			(fotoText || "") +
-			(videoText || "") +
+			fotoText +
+			videoText +
 			footerText +
 			"\n" +
 			"https://wa.me/6287731234911" +
 			phone;
-		frm.doc.wa_client_broadcast_text = wa_client_broadcast_text;
-		// refresh_field("wa_client_broadcast_text");
 
-		let wa_status_or_story =
-			(frm.doc.tipe_property || "") +
+		// frm.set_value("wa_status_or_story",
+		frm.doc.wa_status_or_story =
+			(f.tipe_property || "") +
 			" " +
-			(frm.doc.perumahan || "") +
+			(f.perumahan || "") +
 			" Murah!!\n" +
 			"LT: " +
-			(frm.doc.luas_tanah || "") +
+			(f.luas_tanah || "") +
 			" m²" +
 			lantaiText +
 			"\n\n" +
@@ -111,8 +282,21 @@ frappe.ui.form.on("Property", {
 			hargaText +
 			perMeterText +
 			"\n\n" +
-			(frm.doc.name || "");
-		frm.doc.wa_status_or_story = wa_status_or_story;
+			(f.name || "");
+
+		let detail_listing_123 =
+			(frm.doc.name || "") +
+			isLelang +
+			"\n\n" +
+			(frm.doc.judul_listing || "") +
+			"\n\n" +
+			(frm.doc.detail_listing || "") +
+			"\n\n" +
+			"Hanya " +
+			hargaText +
+			"saja!\n\nJoe\nRay White TPI Wiyung\n";
+		frm.doc.detail_listing_123 = detail_listing_123;
+		frm.doc.detail_listing_lamudi = detail_listing_123;
 
 		// Description generator
 		// write the generator script here.
@@ -134,7 +318,7 @@ frappe.ui.form.on("Property", {
 			if (get("lxp")) desc += ` --> ${get("lxp")}`;
 			desc += "\n";
 
-			// LB + jml_lantai
+			// LB + jumlah_lantai
 			if (get("luas_bangunan")) {
 				desc += `LB: ${get("luas_bangunan")}m²`;
 				if (get("jumlah_lantai") > 1) desc += ` ${get("jumlah_lantai")} lantai`;
@@ -170,8 +354,250 @@ frappe.ui.form.on("Property", {
 			if (get("sumber_air")) desc += `Air: ${get("sumber_air")}\n`;
 
 			// Hadap + hook
-			if (get("hadap")) desc += `Hadap: ${get("hadap")}`;
-			if (get("lokasi_hook") === "Ya") desc += " hook";
+			// Hadap builder
+			const hadap_map = {
+				timur: "Timur",
+				tenggara: "Tenggara",
+				selatan: "Selatan",
+				barat_daya: "Barat Daya",
+				barat: "Barat",
+				barat_laut: "Barat Laut",
+				utara: "Utara",
+				timur_laut: "Timur Laut",
+			};
+
+			let hadap_list = [];
+			for (let key in hadap_map) {
+				if (flt(get(key)) === 1) {
+					hadap_list.push(hadap_map[key]);
+				}
+			}
+
+			// Build text
+			if (hadap_list.length) {
+				desc += "Hadap: " + hadap_list.join(", ");
+			}
+
+			// Hook
+			if (flt(get("lokasi_hook")) === 1) {
+				desc += " (Hook)";
+			}
+			desc += "\n";
+
+			// Perabotan
+			if (["Full Furnished", "Semi Furnished"].includes(get("kondisi_perabotan")))
+				desc += `${get("kondisi_perabotan")}\n`;
+
+			// Material lantai
+			if (get("material_lantai")) desc += `${get("material_lantai")}\n`;
+
+			// Lebar jalan
+			if (get("lebar_jalan")) {
+				const n = parseInt(get("lebar_jalan"));
+				if (n > 2) {
+					desc += `Jalan lebar! ${n} mobil!\n`;
+				} else {
+					desc += `Row jalan ${n} mobil\n`;
+				}
+			}
+
+			// Assign the generated text
+			frm.doc.detail_listing_generator = desc.trim();
+		}
+		// END Description generator
+	},
+
+	// do it again if there are changes
+	rebuild_copywriting(frm) {
+		const f = frm.doc;
+
+		//------------------------------------------------------
+		// existing helpers rebuilt cleanly
+		//------------------------------------------------------
+		const isLelang = (f.description || "").toLowerCase().match(/aset macet|lelang|no viewing/)
+			? "-L"
+			: "";
+
+		let hargaText = "";
+		if (f.harga) {
+			hargaText =
+				f.harga >= 1_000_000_000
+					? (f.harga / 1_000_000_000).toFixed(2).replace(/\.00$/, "") + "M "
+					: (f.harga / 1_000_000).toFixed(0) + " juta ";
+		}
+
+		const perMeterText = f.permeter
+			? "\n" + Math.floor(f.permeter / 1_000_000) + " jutaan per meter!"
+			: "";
+		const lantaiText = f.jumlah_lantai > 1 ? " | " + f.jumlah_lantai + " Lantai" : "";
+
+		const fotoText = f.google_drive_folder
+			? "📷Foto: https://" + frappe.boot.sitename + (f.route ? "/" + f.route : "") + "\n\n"
+			: "";
+
+		const videoText = f.youtube_link ? "🎥Video: " + f.youtube_link + "\n\n" : "";
+
+		const footerText = "Joe\nRay White TPI Wiyung";
+		const phone = frappe.boot.user?.phone || "";
+
+		//------------------------------------------------------
+		// BUILD FIELDS
+		//------------------------------------------------------
+
+		frm.set_value(
+			"wa_group_broadcast_text",
+			(f.name || "") +
+				isLelang +
+				"\n\n" +
+				(f.judul_listing || "") +
+				"\n\n" +
+				(f.detail_listing || "") +
+				"\n\n" +
+				"Hanya " +
+				hargaText +
+				"saja!\n\n" +
+				footerText +
+				"\n" +
+				"https://wa.me/6287731234911" +
+				phone
+		);
+
+		frm.set_value(
+			"wa_client_broadcast_text",
+			(f.name || "") +
+				isLelang +
+				"\n\n" +
+				(f.judul_listing || "") +
+				"\n\n" +
+				(f.detail_listing || "") +
+				"\n\n" +
+				"Hanya " +
+				hargaText +
+				"saja!\n\n" +
+				fotoText +
+				videoText +
+				footerText +
+				"\n" +
+				"https://wa.me/6287731234911" +
+				phone
+		);
+
+		frm.set_value(
+			"wa_status_or_story",
+			(f.tipe_property || "") +
+				" " +
+				(f.perumahan || "") +
+				" Murah!!\n" +
+				"LT: " +
+				(f.luas_tanah || "") +
+				" m²" +
+				lantaiText +
+				"\n\n" +
+				"Hanya " +
+				hargaText +
+				perMeterText +
+				"\n\n" +
+				(f.name || "")
+		);
+
+		let detail_listing_123 =
+			(frm.doc.name || "") +
+			isLelang +
+			"\n\n" +
+			(frm.doc.judul_listing || "") +
+			"\n\n" +
+			(frm.doc.detail_listing || "") +
+			"\n\n" +
+			"Hanya " +
+			hargaText +
+			"saja!\n\nJoe\nRay White TPI Wiyung\n";
+		frm.doc.detail_listing_123 = detail_listing_123;
+		frm.doc.detail_listing_lamudi = detail_listing_123;
+
+		// Description generator
+		// write the generator script here.
+		// -------------------------------------
+		{
+			const f = frm.doc; // shorthand
+
+			// helper: safe fetch
+			const get = (field) => f[field] || "";
+
+			// Start building the detail description (replicating your GSheet formula)
+			let desc = "";
+
+			// USP
+			if (get("usp")) desc += `${get("usp")}\n`;
+
+			// LT + LxP
+			if (get("luas_tanah")) desc += `LT: ${get("luas_tanah")}m²`;
+			if (get("lxp")) desc += ` --> ${get("lxp")}`;
+			desc += "\n";
+
+			// LB + jumlah_lantai
+			if (get("luas_bangunan")) {
+				desc += `LB: ${get("luas_bangunan")}m²`;
+				if (get("jumlah_lantai") > 1) desc += ` ${get("jumlah_lantai")} lantai`;
+				desc += "\n";
+			}
+
+			// Kamar tidur
+			if (get("kamar_tidur") || get("kamar_tidur_pembantu")) {
+				desc += "Kamar Tidur: ";
+				desc += get("kamar_tidur") || "";
+				if (get("kamar_tidur_pembantu")) desc += ` + ${get("kamar_tidur_pembantu")}`;
+				desc += "\n";
+			}
+
+			// Kamar mandi
+			if (get("kamar_mandi") || get("kamar_mandi_pembantu")) {
+				desc += "Kamar Mandi: ";
+				desc += get("kamar_mandi") || "";
+				if (get("kamar_mandi_pembantu")) desc += ` + ${get("kamar_mandi_pembantu")}`;
+				desc += "\n";
+			}
+
+			// Garasi
+			if (parseInt(get("garasi")) > 0) desc += `Garasi: ${get("garasi")} mobil\n`;
+
+			// Carport
+			if (parseInt(get("carport")) > 0) desc += `Carport: ${get("carport")} mobil\n`;
+
+			// PLN
+			if (get("daya_listrik")) desc += `PLN: ${get("daya_listrik")} Watt\n`;
+
+			// Air
+			if (get("sumber_air")) desc += `Air: ${get("sumber_air")}\n`;
+
+			// Hadap + hook
+			// Hadap builder
+			const hadap_map = {
+				timur: "Timur",
+				tenggara: "Tenggara",
+				selatan: "Selatan",
+				barat_daya: "Barat Daya",
+				barat: "Barat",
+				barat_laut: "Barat Laut",
+				utara: "Utara",
+				timur_laut: "Timur Laut",
+			};
+
+			let hadap_list = [];
+			for (let key in hadap_map) {
+				if (flt(get(key)) === 1) {
+					hadap_list.push(hadap_map[key]);
+				}
+			}
+
+			// Build text
+			if (hadap_list.length) {
+				desc += "Hadap: " + hadap_list.join(", ");
+			}
+
+			// Hook
+			if (flt(get("lokasi_hook")) === 1) {
+				desc += " (Hook)";
+			}
 			desc += "\n";
 
 			// Perabotan
@@ -196,103 +622,65 @@ frappe.ui.form.on("Property", {
 			refresh_field("detail_listing_generator");
 		}
 		// END Description generator
+	},
 
-		// -------------------------------------
-		// 3. R123 TAB (mirror fields)
-		// -------------------------------------
+	//----------------------------------------------------------
+	// ONLOAD MIRROR SYNC (runs once)
+	//----------------------------------------------------------
+	onload(frm) {
+		// mirror essential fields when loading an existing doc
+		const base_fields = [
+			"tipe_property",
+			"harga",
+			"luas_tanah",
+			"luas_bangunan",
+			"kamar_tidur",
+			"kamar_mandi",
+			"kamar_tidur_pembantu",
+			"kamar_mandi_pembantu",
+			"jumlah_lantai",
+			"garasi",
+			"carport",
+			"ruang_tamu",
+			"ruang_makan",
+			"dapur",
+			"lokasi_hook",
+			"sertifikat",
+			"kondisi_property",
+			"kondisi_perabotan",
+			"usp",
+			"fasilitas",
+			"fasilitas_perumahan",
+			"lebar_jalan",
+			"konsep",
+			"pemandangan",
+			"daya_listrik",
+			"tahun_dibangun",
+			"tahun_renovasi",
+			"sumber_air",
+			"material_lantai",
+			"letak",
+			"terjangkau_internet",
+			"timur",
+			"tenggara",
+			"selatan",
+			"barat_daya",
+			"barat",
+			"barat_laut",
+			"utara",
+			"timur_laut",
+			"judul_listing",
+			"detail_listing",
+		];
 
-		frm.doc.tipe_property_123 = frm.doc.tipe_property || "";
-		// refresh_field("tipe_property_123");
-		frm.doc.harga_123 = frm.doc.harga || "";
-		// refresh_field("harga_123");
-		frm.doc.luas_tanah_123 = frm.doc.luas_tanah || "";
-		// refresh_field("luas_tanah_123");
-		frm.doc.luas_bangunan_123 = frm.doc.luas_bangunan || "";
-		// refresh_field("luas_bangunan_123");
-		frm.doc.kamar_tidur_123 = frm.doc.kamar_tidur || "";
-		// refresh_field("kamar_tidur_123");
-		frm.doc.kamar_mandi_123 = frm.doc.kamar_mandi || "";
-		// refresh_field("kamar_mandi_123");
-		frm.doc.kamar_tidur_pembantu_123 = frm.doc.kamar_tidur_pembantu || "";
-		// refresh_field("kamar_tidur_pembantu_123");
-		frm.doc.kamar_mandi_pembantu_123 = frm.doc.kamar_mandi_pembantu || "";
-		// refresh_field("kamar_mandi_pembantu_123");
-		frm.doc.jumlah_lantai_123 = frm.doc.jumlah_lantai || "";
-		// refresh_field("jumlah_lantai_123");
-		frm.doc.garasi_123 = frm.doc.garasi || "";
-		// refresh_field("garasi_123");
-		frm.doc.carport_123 = frm.doc.carport || "";
-		// refresh_field("carport_123");
-		frm.doc.ruang_tamu_123 = frm.doc.ruang_tamu || "";
-		// refresh_field("ruang_tamu_123");
-		frm.doc.ruang_makan_123 = frm.doc.ruang_makan || "";
-		// refresh_field("ruang_makan_123");
-		frm.doc.dapur_123 = frm.doc.dapur || "";
-		// refresh_field("dapur_123");
-		frm.doc.lokasi_hook_123 = frm.doc.lokasi_hook || "";
-		// refresh_field("lokasi_hook_123");
-		frm.doc.sertifikat_123 = frm.doc.sertifikat || "";
-		// refresh_field("sertifikat_123");
-		frm.doc.kondisi_property_123 = frm.doc.kondisi_property || "";
-		// refresh_field("kondisi_property_123");
-		frm.doc.kondisi_perabotan_123 = frm.doc.kondisi_perabotan || "";
-		// refresh_field("kondisi_perabotan_123");
-		frm.doc.usp_123 = frm.doc.usp || "";
-		// refresh_field("usp_123");
-		frm.doc.fasilitas_123 = frm.doc.fasilitas || "";
-		// refresh_field("fasilitas_123");
-		frm.doc.fasilitas_perumahan_123 = frm.doc.fasilitas_perumahan || "";
-		// refresh_field("fasilitas_perumahan_123");
-		frm.doc.lebar_jalan_123 = frm.doc.lebar_jalan || "";
-		// refresh_field("lebar_jalan_123");
-		frm.doc.konsep_123 = frm.doc.konsep || "";
-		// refresh_field("konsep_123");
-		frm.doc.pemandangan_123 = frm.doc.pemandangan || "";
-		// refresh_field("pemandangan_123");
-		frm.doc.daya_listrik_123 = frm.doc.daya_listrik || "";
-		// refresh_field("daya_listrik_123");
-		frm.doc.tahun_dibangun_123 = frm.doc.tahun_dibangun || "";
-		// refresh_field("tahun_dibangun_123");
-		frm.doc.tahun_renovasi_123 = frm.doc.tahun_renovasi || "";
-		// refresh_field("tahun_renovasi_123");
-		frm.doc.sumber_air_123 = frm.doc.sumber_air || "";
-		// refresh_field("sumber_air_123");
-		frm.doc.material_lantai_123 = frm.doc.material_lantai || "";
-		// refresh_field("material_lantai_123");
-		frm.doc.letak_123 = frm.doc.letak || "";
-		// refresh_field("letak_123");
-		frm.doc.terjangkau_internet_123 = frm.doc.terjangkau_internet || "";
-		// refresh_field("terjangkau_internet_123");
-		frm.doc.timur_123 = frm.doc.timur || "";
-		// refresh_field("timur_123");
-		frm.doc.tenggara_123 = frm.doc.tenggara || "";
-		// refresh_field("tenggara_123");
-		frm.doc.selatan_123 = frm.doc.selatan || "";
-		// refresh_field("selatan_123");
-		frm.doc.barat_daya_123 = frm.doc.barat_daya || "";
-		// refresh_field("barat_daya_123");
-		frm.doc.barat_123 = frm.doc.barat || "";
-		// refresh_field("barat_123");
-		frm.doc.barat_laut_123 = frm.doc.barat_laut || "";
-		// refresh_field("barat_laut_123");
-		frm.doc.utara_123 = frm.doc.utara || "";
-		// refresh_field("utara_123");
-		frm.doc.timur_laut_123 = frm.doc.timur_laut || "";
-		// refresh_field("timur_laut_123");
-		let judul_listing_123 = frm.doc.judul_listing || "";
-		let detail_listing_123 =
-			(frm.doc.name || "") +
-			isLelang +
-			"\n\n" +
-			(frm.doc.judul_listing || "") +
-			"\n\n" +
-			(frm.doc.detail_listing || "") +
-			"\n\n" +
-			"Hanya " +
-			hargaText +
-			"saja!\n\n";
-		frm.doc.detail_listing_123 = detail_listing_123;
-		// refresh_field("detail_listing_123");
+		base_fields.forEach((f) => {
+			if (frm.doc[f] !== undefined) {
+				frm.doc[`${f}_123`] = frm.doc[f];
+				frm.doc[`${f}_lamudi`] = frm.doc[f];
+			}
+		});
+
+		frm.trigger("build_copywriting");
 	},
 });
 

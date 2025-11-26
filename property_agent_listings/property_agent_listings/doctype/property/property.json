@@ -17,6 +17,7 @@
   "whatsapp_contact",
   "section_break_pizx",
   "contact",
+  "received_broadcast_text",
   "notes",
   "personal_notes",
   "lokasi_dan_alamat_section",
@@ -95,8 +96,6 @@
   "usp",
   "fasilitas",
   "fasilitas_perumahan",
-  "section_break_jloo",
-  "received_broadcast_text",
   "website_and_helper_section",
   "route",
   "copywriting_tab",
@@ -163,12 +162,32 @@
   "judul_listing_123",
   "detail_listing_123",
   "lamudi_view_tab",
+  "operasi_section",
+  "jual_sewa_lamudi",
+  "tipe_property_lamudi",
   "marketplace_upload_section",
   "perumahan_lamudi",
-  "judul_listing_lamudi",
-  "jual_sewa_lamudi",
+  "luas_bangunan_lamudi",
+  "kamar_tidur_lamudi",
+  "kamar_tidur_pembantu_lamudi",
+  "kondisi_perabotan_lamudi",
+  "column_break_obma",
+  "luas_tanah_lamudi",
+  "kamar_mandi_lamudi",
+  "kamar_mandi_pembantu_lamudi",
+  "jumlah_lantai_lamudi",
+  "tahun_dibangun_lamudi",
+  "section_break_jtag",
   "harga_lamudi",
-  "tipe_property_lamudi",
+  "fasilitas_lamudi",
+  "column_break_rdhh",
+  "google_drive_link_lamudi",
+  "youtube_link_lamudi",
+  "deskirpsi_properti_lamudi_section",
+  "judul_listing_lamudi",
+  "detail_listing_lamudi",
+  "section_break_tsyw",
+  "fasilitas_perumahan_lamudi",
   "utara_lamudi",
   "daya_listrik_lamudi",
   "timur_lamudi",
@@ -198,24 +217,7 @@
   "barat_daya_lamudi",
   "sertifikat_lamudi",
   "kecamatan_name_lamudi",
-  "section_break_jtag",
-  "kondisi_perabotan_lamudi",
-  "kamar_tidur_lamudi",
-  "kamar_tidur_pembantu_lamudi",
-  "kamar_mandi_lamudi",
-  "kamar_mandi_pembantu_lamudi",
-  "luas_bangunan_lamudi",
-  "luas_tanah_lamudi",
-  "jumlah_lantai_lamudi",
-  "tahun_dibangun_lamudi",
-  "section_break_tsyw",
-  "detail_listing_lamudi",
-  "fasilitas_perumahan_lamudi",
-  "fasilitas_lamudi",
   "usp_lamudi",
-  "media_lamudi_section",
-  "google_drive_link_lamudi",
-  "youtube_link_lamudi",
   "pinhome_view_tab",
   "harga_pinhome",
   "marketplace_tab",
@@ -383,7 +385,6 @@
    "fieldname": "jual_sewa",
    "fieldtype": "Select",
    "in_filter": 1,
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Jual / Sewa",
    "options": "Dijual\nDisewakan",
@@ -480,7 +481,8 @@
   {
    "fieldname": "r123_view_tab",
    "fieldtype": "Tab Break",
-   "label": "R123 View"
+   "label": "R123 View",
+   "print_hide": 1
   },
   {
    "fieldname": "lamudi_view_tab",
@@ -535,8 +537,10 @@
    "fieldtype": "Column Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_pizx",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Contact & Notes"
   },
   {
    "default": "Now",
@@ -576,11 +580,12 @@
   {
    "default": "0",
    "fieldname": "luas_tanah",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Luas Tanah",
+   "precision": "1",
    "reqd": 1
   },
   {
@@ -590,8 +595,9 @@
   },
   {
    "fieldname": "luas_bangunan",
-   "fieldtype": "Data",
-   "label": "Luas Bangunan"
+   "fieldtype": "Float",
+   "label": "Luas Bangunan",
+   "precision": "1"
   },
   {
    "fieldname": "kamar_tidur",
@@ -632,7 +638,7 @@
   },
   {
    "fieldname": "lebar_jalan",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "in_filter": 1,
    "in_standard_filter": 1,
    "label": "Lebar jalan (mobil)"
@@ -832,6 +838,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.kamar_tidur_pembantu > 0;",
    "fieldname": "kamar_tidur_pembantu_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -854,6 +861,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.lokasi_hook == 1;",
    "fieldname": "lokasi_hook_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -875,6 +883,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.kamar_mandi_pembantu > 0;",
    "fieldname": "kamar_mandi_pembantu_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -882,6 +891,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.lebar_jalan > 0;",
    "fieldname": "lebar_jalan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
@@ -905,6 +915,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.ruang_tamu == 1;",
    "fieldname": "ruang_tamu_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -919,6 +930,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.tahun_dibangun > 0;",
    "fieldname": "tahun_dibangun_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -927,6 +939,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.terjangkau_internet == 1;",
    "fieldname": "terjangkau_internet_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -942,6 +955,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.dapur == 1;",
    "fieldname": "dapur_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -949,6 +963,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.tahun_renovasi > 0;",
    "fieldname": "tahun_renovasi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -957,6 +972,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.barat == 1;",
    "fieldname": "barat_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -965,6 +981,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.barat_daya == 1;",
    "fieldname": "barat_daya_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -973,6 +990,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.timur == 1;",
    "fieldname": "timur_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -981,6 +999,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.tenggara == 1;",
    "fieldname": "tenggara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -989,6 +1008,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.barat_laut == 1;",
    "fieldname": "barat_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1011,6 +1031,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.utara == 1;",
    "fieldname": "utara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1026,6 +1047,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.timur_laut == 1;",
    "fieldname": "timur_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1047,6 +1069,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.luas_bangunan > 0;",
    "fieldname": "luas_bangunan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
@@ -1054,6 +1077,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.kamar_tidur > 0;",
    "fieldname": "kamar_tidur_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1061,6 +1085,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.kamar_mandi > 0;",
    "fieldname": "kamar_mandi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1068,6 +1093,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.jumlah_lantai > 0;",
    "fieldname": "jumlah_lantai_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1075,6 +1101,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "doc.garasi > 0;",
    "fieldname": "garasi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1116,6 +1143,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.selatan == 1;",
    "fieldname": "selatan_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1191,10 +1219,6 @@
    "label": "WA Status or Story"
   },
   {
-   "fieldname": "section_break_jloo",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "received_broadcast_text",
    "fieldtype": "Table",
    "label": "Received Broadcast Text",
@@ -1260,7 +1284,7 @@
    "fieldname": "luas_tanah_lamudi",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Luas Tanah lamudi",
+   "label": "Luas yang dapat digunakan",
    "read_only": 1
   },
   {
@@ -1319,7 +1343,7 @@
    "fieldname": "kondisi_perabotan_lamudi",
    "fieldtype": "Data",
    "is_virtual": 1,
-   "label": "Kondisi Perabotan lamudi",
+   "label": "Furnitur lamudi",
    "read_only": 1
   },
   {
@@ -1434,6 +1458,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.barat_laut == 1;",
    "fieldname": "barat_laut_lamudi",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1489,7 +1514,7 @@
    "fieldname": "jumlah_lantai_lamudi",
    "fieldtype": "Int",
    "is_virtual": 1,
-   "label": "Jumlah Lantai lamudi",
+   "label": "Lantai properti lamudi",
    "read_only": 1
   },
   {
@@ -1544,6 +1569,7 @@
   },
   {
    "default": "0",
+   "depends_on": "doc.barat_daya == 1;",
    "fieldname": "barat_daya_lamudi",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1606,17 +1632,32 @@
   },
   {
    "fieldname": "section_break_tsyw",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "media_lamudi_section",
    "fieldtype": "Section Break",
-   "label": "Media Lamudi"
+   "hidden": 1,
+   "label": "Hidden Section Lamudi"
   },
   {
    "fieldname": "detail_listing_generator",
    "fieldtype": "Small Text",
    "label": "Detail Listing Generator"
+  },
+  {
+   "fieldname": "operasi_section",
+   "fieldtype": "Section Break",
+   "label": "Operasi"
+  },
+  {
+   "fieldname": "column_break_obma",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rdhh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deskirpsi_properti_lamudi_section",
+   "fieldtype": "Section Break",
+   "label": "Deskirpsi Properti Lamudi"
   }
  ],
  "grid_page_length": 50,
@@ -1627,8 +1668,8 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-11-19 13:10:03.486122",
- "modified_by": "sampahtj@gmail.com",
+ "modified": "2025-11-26 09:12:57.627341",
+ "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",
  "naming_rule": "Set by user",

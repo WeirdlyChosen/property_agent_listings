@@ -63,6 +63,13 @@ class Property(WebsiteGenerator):
 
 		self.alamat_property = "".join(parts).strip()
 
+		# Set listing URL
+		desired = f"listing/{self.name}"
+		current = (self.route or "").strip()
+
+		if current != desired:
+			self.route = desired
+
 	def get_context(self, context=None):
 		context = context or {}
 		context["doc"] = self
