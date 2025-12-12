@@ -25,7 +25,6 @@ class Property(WebsiteGenerator):
 			except ZeroDivisionError:
 				self.permeter = 0
 		else:
-			# If either field is missing, reset to 0
 			self.permeter = 0
 
 		# --- Alamat Property ---
@@ -48,7 +47,6 @@ class Property(WebsiteGenerator):
 			parts.append(f" Blok {self.blok_perumahan}")
 
 		if self.nomor_rumah:
-			# If blok_perumahan is empty, add space before nomor
 			sep = " " if not self.blok_perumahan else "-"
 			parts.append(f"{sep}{self.nomor_rumah}")
 
@@ -59,11 +57,10 @@ class Property(WebsiteGenerator):
 			parts.append(f" {self.kota}")
 
 		if self.provinsi:
-			parts.append(f" {self.provinsi}")
+			parts.append(f"{self.provinsi}")
 
 		self.alamat_property = "".join(parts).strip()
 
-		# Set listing URL
 		desired = f"listing/{self.name}"
 		current = (self.route or "").strip()
 
@@ -74,14 +71,12 @@ class Property(WebsiteGenerator):
 		context = context or {}
 		context["doc"] = self
 
-		# Correct meta
 		context["meta"] = {
 			"title": self.judul_listing or self.name,
 			"description": self.detail_listing or "",
 			"image": self.gambar_utama or "",
 		}
 
-		# Inject logged-in user
 		if frappe.session.user != "Guest":
 			user_doc = frappe.get_doc("User", frappe.session.user)
 			context["user"] = {
@@ -90,6 +85,124 @@ class Property(WebsiteGenerator):
 			}
 
 		return context
+
+	def before_insert(self):
+		import json
+
+		import requests
+
+		CHILD_TABLE_FIELD = "received_broadcast_text"
+		CHILD_VALUE_FIELD = "received_broadcast_text"
+		CHILD_TABLE_DB = "tabProperty Listing Received Broadcast"
+
+		# ---- GET CONFIG FROM "Automation Webhook" DOCTYPE ----
+		config = frappe.get_value(
+			"Automation Webhook",
+			{"function": "AI Listing Generator"},
+			["enabled", "webhook_url", "document_owner_filter"],
+			as_dict=True,
+		)
+
+		TARGET_OWNER = config.document_owner_filter
+
+		def log(message):
+			frappe.log_error(message, f"Webhook - {self.name or 'PRE-INSERT'}")
+
+		# owner check
+		if self.owner != TARGET_OWNER:
+			log(f"⛔ Skipped: Owner mismatch ({self.owner} != {TARGET_OWNER})")
+			return
+
+		rows = self.get(CHILD_TABLE_FIELD) or []
+		messages = [row.get(CHILD_VALUE_FIELD) for row in rows if row.get(CHILD_VALUE_FIELD)]
+
+		if not messages:
+			log(f"⚠️ No broadcast text found in child field '{CHILD_VALUE_FIELD}'. Duplicate check skipped.")
+			return
+
+		latest_message = messages[-1]
+
+		# ---- DUPLICATE CHECK ----
+		existing = frappe.db.sql(
+			f"SELECT parent FROM `{CHILD_TABLE_DB}` WHERE `{CHILD_VALUE_FIELD}` = %s",
+			(latest_message,),
+			as_dict=True,
+		)
+
+		if existing:
+			duplicate_name = existing[0].parent
+
+			user_message = f"""
+			<b>🚫 Duplicate Message Detected</b><br><br>
+			Pesan yang sama sudah pernah diterima.<br><br>
+			<b>Property:</b> {duplicate_name}<br>
+			<b>Isi Pesan:</b><br>
+			<div style="padding:6px; margin-top:4px; border-radius:4px;">
+			{frappe.utils.escape_html(latest_message)}
+			</div>
+			"""
+
+			log(f"DUPLICATE BLOCKED → Exists in: {duplicate_name}\nMessage: {latest_message}")
+			frappe.throw(user_message, title="Duplicate Found")
+
+	def after_insert(self):
+		import json
+
+		import requests
+
+		CHILD_TABLE_FIELD = "received_broadcast_text"
+		CHILD_VALUE_FIELD = "received_broadcast_text"
+
+		# ---- GET CONFIG FROM "Automation Webhook" DOCTYPE ----
+		config = frappe.get_value(
+			"Automation Webhook",
+			{"function": "AI Listing Generator"},
+			["enabled", "webhook_url", "document_owner_filter"],
+			as_dict=True,
+		)
+
+		WEBHOOK_URL = config.webhook_url
+		TARGET_OWNER = config.document_owner_filter
+
+		def log(message):
+			frappe.log_error(message, f"Webhook - {self.name}")
+
+		# Skip if disabled
+		log(f"[DEBUG] config.enabled raw value: {config.enabled}")
+
+		if not config.enabled:
+			log("[DEBUG] Webhook disabled → execution stopped.")
+			return
+
+		if self.owner != TARGET_OWNER:
+			log(f"⛔ Skipped: Owner mismatch ({self.owner} != {TARGET_OWNER})")
+			return
+
+		rows = self.get(CHILD_TABLE_FIELD) or []
+		messages = [row.get(CHILD_VALUE_FIELD) for row in rows if row.get(CHILD_VALUE_FIELD)]
+
+		# Stop only when NO ROWS exist in child table
+		if not rows:
+			log("⛔ No broadcast message row found. Stopping process.")
+			return
+
+		# There is a row but message content is blank → allow insert and webhook,
+		# but normalize to empty string instead of None
+		messages = [row.get(CHILD_VALUE_FIELD) or "" for row in rows]
+
+		if any(text.strip() == "" for text in messages):
+			log("⚠ Message exists but text is blank.")
+
+		payload = {"owner": self.owner, "doc_name": self.name, "messages": messages}
+
+		log(f"📤 Sending webhook:\n{json.dumps(payload, indent=2)}")
+
+		try:
+			res = requests.post(WEBHOOK_URL, json=payload, timeout=10)
+			log(f"✔️ Webhook sent — Response {res.status_code}: {res.text}")
+		except Exception as e:
+			log(f"❌ Webhook sending ERROR: {e!s}")
+			raise frappe.ValidationError("Webhook gagal dikirim. Coba lagi.")
 
 
 @frappe.whitelist()
