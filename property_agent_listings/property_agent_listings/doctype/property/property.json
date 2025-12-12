@@ -130,10 +130,13 @@
   "hadap_123_section",
   "timur_123",
   "tenggara_123",
+  "column_break_aeyf",
   "selatan_123",
   "barat_daya_123",
+  "column_break_sijf",
   "barat_123",
   "barat_laut_123",
+  "column_break_sfcx",
   "utara_123",
   "timur_laut_123",
   "section_break_ibxr",
@@ -971,7 +974,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.barat == 1;",
    "fieldname": "barat_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -980,7 +982,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.barat_daya == 1;",
    "fieldname": "barat_daya_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -989,7 +990,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.timur == 1;",
    "fieldname": "timur_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -998,7 +998,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.tenggara == 1;",
    "fieldname": "tenggara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1007,7 +1006,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.barat_laut == 1;",
    "fieldname": "barat_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1029,7 +1027,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.utara == 1;",
    "fieldname": "utara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1045,7 +1042,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.timur_laut == 1;",
    "fieldname": "timur_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1074,7 +1070,6 @@
    "read_only": 1
   },
   {
-   "depends_on": "doc.kamar_tidur > 0;",
    "fieldname": "kamar_tidur_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1082,7 +1077,6 @@
    "read_only": 1
   },
   {
-   "depends_on": "doc.kamar_mandi > 0;",
    "fieldname": "kamar_mandi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1090,7 +1084,6 @@
    "read_only": 1
   },
   {
-   "depends_on": "doc.jumlah_lantai > 0;",
    "fieldname": "jumlah_lantai_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1098,7 +1091,6 @@
    "read_only": 1
   },
   {
-   "depends_on": "doc.garasi > 0;",
    "fieldname": "garasi_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1140,7 +1132,6 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.selatan == 1;",
    "fieldname": "selatan_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1653,6 +1644,18 @@
    "fieldname": "deskirpsi_properti_lamudi_section",
    "fieldtype": "Section Break",
    "label": "Deskirpsi Properti Lamudi"
+  },
+  {
+   "fieldname": "column_break_aeyf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sijf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sfcx",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
@@ -1663,7 +1666,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-12-11 15:04:37.726048",
+ "modified": "2025-12-12 13:42:01.810066",
  "modified_by": "sampahtj@gmail.com",
  "module": "Property Agent Listings",
  "name": "Property",
