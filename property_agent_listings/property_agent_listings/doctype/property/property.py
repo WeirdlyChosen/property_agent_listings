@@ -7,6 +7,8 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.website.website_generator import WebsiteGenerator
 
+from property_agent_listings.api.website import trigger_facebook_rescrape
+
 
 class Property(WebsiteGenerator):
 	def autoname(self):
@@ -289,3 +291,7 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=
 			message=frappe.get_traceback(),
 		)
 		frappe.throw(f"update_main_photo failed: {e!s}")
+
+
+def on_update(self):
+	trigger_facebook_rescrape(self.name)
