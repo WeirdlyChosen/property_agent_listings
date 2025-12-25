@@ -16,8 +16,8 @@
   "permeter",
   "whatsapp_contact",
   "section_break_pizx",
-  "contact",
   "received_broadcast_text",
+  "contact",
   "notes",
   "personal_notes",
   "lokasi_dan_alamat_section",
@@ -565,7 +565,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Tipe Property",
-   "options": "Rumah\nApartment\nRuko\nGudang\nTanah\nVilla",
+   "options": "Rumah\nApartment\nRuko\nGudang\nTanah\nVilla\nPabrik",
    "reqd": 1
   },
   {
@@ -891,7 +891,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "doc.lebar_jalan > 0;",
+   "depends_on": "eval: doc.lebar_jalan > 0;",
    "fieldname": "lebar_jalan_123",
    "fieldtype": "Data",
    "is_virtual": 1,
@@ -915,7 +915,7 @@
   },
   {
    "default": "0",
-   "depends_on": "doc.ruang_tamu == 1;",
+   "depends_on": "eval: doc.ruang_tamu == 1;",
    "fieldname": "ruang_tamu_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -972,6 +972,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.barat == 1;",
    "fieldname": "barat_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -980,6 +981,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.barat_daya == 1;",
    "fieldname": "barat_daya_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -988,6 +990,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.timur == 1;",
    "fieldname": "timur_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -996,6 +999,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.tenggara == 1;",
    "fieldname": "tenggara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1004,6 +1008,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.barat_laut == 1;",
    "fieldname": "barat_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1025,6 +1030,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.utara == 1;",
    "fieldname": "utara_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1040,6 +1046,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.timur_laut == 1;",
    "fieldname": "timur_laut_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1082,6 +1089,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval: doc.jumlah_lantai > 1;",
    "fieldname": "jumlah_lantai_123",
    "fieldtype": "Int",
    "is_virtual": 1,
@@ -1130,6 +1138,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.selatan == 1;",
    "fieldname": "selatan_123",
    "fieldtype": "Check",
    "is_virtual": 1,
@@ -1664,8 +1673,8 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-12-13 13:44:41.210544",
- "modified_by": "sampahtj@gmail.com",
+ "modified": "2025-12-25 18:33:45.443440",
+ "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",
  "naming_rule": "Set by user",

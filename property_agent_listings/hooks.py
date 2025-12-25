@@ -7,7 +7,10 @@ app_license = "agpl-3.0"
 
 doc_events = {
 	"Contact": {
-		"validate": "property_agent_listings.api.contact.fill_gender",
+		"validate": [
+			"property_agent_listings.api.contact.fill_gender",
+			"property_agent_listings.api.contact.ensure_single_phone_primary",
+		]
 	}
 }
 

@@ -284,19 +284,33 @@ frappe.ui.form.on("Property", {
 			"\n\n" +
 			(f.name || "");
 
+		// Keep only alphanumeric, punctuation, and symbols.
+		// Remove everything else (including emojis).
+		const whitelist = /[^a-zA-Z0-9\s.,:;!?@#$%^&*()_\-+=\/\\'"<>[\]{}|~`]/g;
+
+		const judulClean = (frm.doc.judul_listing || "").replace(whitelist, "").trim();
+		const detailClean = (frm.doc.detail_listing || "").replace(whitelist, "").trim();
+
 		let detail_listing_123 =
 			(frm.doc.name || "") +
 			isLelang +
 			"\n\n" +
-			(frm.doc.judul_listing || "") +
+			judulClean +
 			"\n\n" +
-			(frm.doc.detail_listing || "") +
+			detailClean +
 			"\n\n" +
 			"Hanya " +
 			hargaText +
 			"saja!\n\nJoe\nRay White TPI Wiyung\n";
+
+		frm.doc.judul_listing_123 = judulClean;
+		frm.doc.judul_listing_lamudi = judulClean;
 		frm.doc.detail_listing_123 = detail_listing_123;
 		frm.doc.detail_listing_lamudi = detail_listing_123;
+		refresh_field("judul_listing_123");
+		refresh_field("judul_listing_lamudi");
+		refresh_field("detail_listing_123");
+		refresh_field("detail_listing_lamudi");
 
 		// Description generator
 		// write the generator script here.
@@ -500,19 +514,33 @@ frappe.ui.form.on("Property", {
 				(f.name || "")
 		);
 
+		// Keep only alphanumeric, punctuation, and symbols.
+		// Remove everything else (including emojis).
+		const whitelist = /[^a-zA-Z0-9\s.,:;!?@#$%^&*()_\-+=\/\\'"<>[\]{}|~`]/g;
+
+		const judulClean = (frm.doc.judul_listing || "").replace(whitelist, "").trim();
+		const detailClean = (frm.doc.detail_listing || "").replace(whitelist, "").trim();
+
 		let detail_listing_123 =
 			(frm.doc.name || "") +
 			isLelang +
 			"\n\n" +
-			(frm.doc.judul_listing || "") +
+			judulClean +
 			"\n\n" +
-			(frm.doc.detail_listing || "") +
+			detailClean +
 			"\n\n" +
 			"Hanya " +
 			hargaText +
 			"saja!\n\nJoe\nRay White TPI Wiyung\n";
+
+		frm.doc.judul_listing_123 = judulClean;
+		frm.doc.judul_listing_lamudi = judulClean;
 		frm.doc.detail_listing_123 = detail_listing_123;
 		frm.doc.detail_listing_lamudi = detail_listing_123;
+		refresh_field("judul_listing_123");
+		refresh_field("judul_listing_lamudi");
+		refresh_field("detail_listing_123");
+		refresh_field("detail_listing_lamudi");
 
 		// Description generator
 		// write the generator script here.
@@ -669,8 +697,6 @@ frappe.ui.form.on("Property", {
 			"barat_laut",
 			"utara",
 			"timur_laut",
-			"judul_listing",
-			"detail_listing",
 		];
 
 		base_fields.forEach((f) => {
