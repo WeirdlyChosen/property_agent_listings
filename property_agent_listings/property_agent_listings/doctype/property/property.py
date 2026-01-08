@@ -210,7 +210,7 @@ class Property(WebsiteGenerator):
 @frappe.whitelist()
 def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=None):
 	try:
-		## --- get full request data for logging---
+		# # --- get full request data for logging---
 		# import json
 
 		# try:
@@ -219,7 +219,7 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=
 		# except Exception:
 		# 	full_json_str = "Could not parse frappe.local.form_dict"
 
-		## --- log the complete raw JSON ---
+		# # --- log the complete raw JSON ---
 		# frappe.log_error(
 		# 	title="update_main_photo: FULL JSON RECEIVED",
 		# 	message=full_json_str,
@@ -230,6 +230,20 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=
 
 		if not frappe.db.exists("Property", docname):
 			frappe.throw(f"Property {docname} not found")
+
+		# --- DELETE existing main photo files (ensure only 1 main photo) ---
+		existing_files = frappe.get_all(
+			"File",
+			filters={
+				"attached_to_doctype": "Property",
+				"attached_to_name": docname,
+				"attached_to_field": "gambar_utama",
+			},
+			pluck="name",
+		)
+
+		for f in existing_files:
+			frappe.delete_doc("File", f, ignore_permissions=True)
 
 		# --- create File record ---
 		file_doc = frappe.get_doc(

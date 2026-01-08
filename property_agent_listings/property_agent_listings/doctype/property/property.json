@@ -98,6 +98,21 @@
   "fasilitas_perumahan",
   "website_and_helper_section",
   "route",
+  "gambar_1",
+  "gambar_2",
+  "gambar_3",
+  "gambar_4",
+  "gambar_5",
+  "gambar_6",
+  "gambar_7",
+  "gambar_8",
+  "gambar_9",
+  "gambar_10",
+  "gambar_11",
+  "gambar_12",
+  "gambar_13",
+  "gambar_14",
+  "gambar_15",
   "copywriting_tab",
   "wa_group_broadcast_text",
   "wa_client_broadcast_text",
@@ -255,7 +270,7 @@
    "in_filter": 1,
    "in_standard_filter": 1,
    "label": "Sertifikat",
-   "options": "SHM - Sertifikat Hak Milik\nHGB - Hak Guna Bangun\nHP - Hak Pakai\nHS - Hak Sewa\nStrata\nLainnya\nSurat Hijau\nPPJB",
+   "options": "\nSHM - Sertifikat Hak Milik\nHGB - Hak Guna Bangun\nHP - Hak Pakai\nHS - Hak Sewa\nStrata\nLainnya\nSurat Hijau\nPPJB",
    "reqd": 1
   },
   {
@@ -1663,6 +1678,81 @@
   {
    "fieldname": "column_break_sfcx",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gambar_1",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 1"
+  },
+  {
+   "fieldname": "gambar_2",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 2"
+  },
+  {
+   "fieldname": "gambar_3",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 3"
+  },
+  {
+   "fieldname": "gambar_4",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 4"
+  },
+  {
+   "fieldname": "gambar_5",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 5"
+  },
+  {
+   "fieldname": "gambar_6",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 6"
+  },
+  {
+   "fieldname": "gambar_7",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 7"
+  },
+  {
+   "fieldname": "gambar_8",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 8"
+  },
+  {
+   "fieldname": "gambar_9",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 9"
+  },
+  {
+   "fieldname": "gambar_10",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 10"
+  },
+  {
+   "fieldname": "gambar_11",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 11"
+  },
+  {
+   "fieldname": "gambar_12",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 12"
+  },
+  {
+   "fieldname": "gambar_13",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 13"
+  },
+  {
+   "fieldname": "gambar_14",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 14"
+  },
+  {
+   "fieldname": "gambar_15",
+   "fieldtype": "Attach Image",
+   "label": "Gambar 15"
   }
  ],
  "grid_page_length": 50,
@@ -1673,8 +1763,8 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2025-12-25 18:33:45.443440",
- "modified_by": "Administrator",
+ "modified": "2026-01-08 12:46:45.391439",
+ "modified_by": "sampahtj@gmail.com",
  "module": "Property Agent Listings",
  "name": "Property",
  "naming_rule": "Set by user",

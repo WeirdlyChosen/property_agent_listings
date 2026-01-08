@@ -22,10 +22,7 @@ repos:
     hooks:
       - id: ruff
         name: "Run ruff import sorter"
-        args: ["--select=I", "--fix"]
-
-      - id: ruff
-        name: "Run ruff linter"
+        args: ["--fix"]
 
       - id: ruff-format
         name: "Run ruff formatter"
