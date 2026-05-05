@@ -224,7 +224,7 @@ frappe.ui.form.on("Property", {
 
 		const videoText = f.youtube_link ? "🎥Video: " + f.youtube_link + "\n\n" : "";
 
-		const footerText = "Joe\nRay White TPI Wiyung";
+		const footerText = "Joe\nNext Level Properti";
 		const phone = frappe.boot.user?.phone || "";
 
 		//------------------------------------------------------
@@ -301,7 +301,7 @@ frappe.ui.form.on("Property", {
 			"\n\n" +
 			"Hanya " +
 			hargaText +
-			"saja!\n\nJoe\nRay White TPI Wiyung\n";
+			"saja!\n\nJoe\nNext Level Properti\n";
 
 		frm.doc.judul_listing_123 = judulClean;
 		frm.doc.judul_listing_lamudi = judulClean;
@@ -451,7 +451,7 @@ frappe.ui.form.on("Property", {
 
 		const videoText = f.youtube_link ? "🎥Video: " + f.youtube_link + "\n\n" : "";
 
-		const footerText = "Joe\nRay White TPI Wiyung";
+		const footerText = "Joe\nNext Level Properti";
 		const phone = frappe.boot.user?.phone || "";
 
 		//------------------------------------------------------
@@ -531,7 +531,7 @@ frappe.ui.form.on("Property", {
 			"\n\n" +
 			"Hanya " +
 			hargaText +
-			"saja!\n\nJoe\nRay White TPI Wiyung\n";
+			"saja!\n\nJoe\nNext Level Properti\n";
 
 		frm.doc.judul_listing_123 = judulClean;
 		frm.doc.judul_listing_lamudi = judulClean;

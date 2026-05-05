@@ -115,8 +115,8 @@
 <div class="container">
 
 	<!-- HERO IMAGE -->
-	<img class="hero" src="{{ doc.gambar_utama or '/files/default-image.jpg' }}">
-
+	<a href="#galeri-foto"><img class="hero" src="{{ doc.gambar_utama or '/files/default-image.jpg' }}">
+		</a>
 	<!-- TITLE -->
 	<div class="heading">{{ doc.judul_listing }}</div>
 
@@ -254,9 +254,9 @@
 
 	<!-- GOOGLE DRIVE GALLERY -->
 	{% if doc.google_drive_folder %}
-<div class="section-title">Galeri Foto</div>
+<div class="section-title" id="galeri-foto">Galeri Foto</div>
 <br>
-<div class="responsive-iframe">
+<div class="responsive-iframe" style="min-height:500px;">
     <iframe 
         src="https://drive.google.com/embeddedfolderview?id={{ doc.google_drive_folder }}#grid"
         frameborder="0">
@@ -271,7 +271,7 @@
 		<img src="/files/Foto Joe.jpg">
 		<div>
 			<div style="font-size:18px; font-weight:700;">Joe</div>
-			<div style="font-size:15px; color:var(--gray);">Ray White TPI Wiyung</div>
+			<div style="font-size:15px; color:var(--gray);">Next Level Properti</div>
 			<div style="margin-top:5px;">📞 08 773 1234 911</div>
 			<a class="whatsapp-btn" href="https://wa.me/6287731234911?text=Halo saya tertarik dengan listing {{ doc.name }}%0A{{ frappe.utils.get_url() }}/{{ doc.route }}">
 				Chat WhatsApp
