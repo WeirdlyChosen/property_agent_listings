@@ -178,6 +178,7 @@
   "section_break_nwta",
   "harga_123",
   "judul_listing_123",
+  "copy_deskripsi_r123",
   "detail_listing_123",
   "lamudi_view_tab",
   "operasi_section",
@@ -203,6 +204,7 @@
   "youtube_link_lamudi",
   "deskirpsi_properti_lamudi_section",
   "judul_listing_lamudi",
+  "copy_deskripsi_lamudi",
   "detail_listing_lamudi",
   "section_break_tsyw",
   "fasilitas_perumahan_lamudi",
@@ -783,7 +785,7 @@
   },
   {
    "fieldname": "detail_listing_123",
-   "fieldtype": "Long Text",
+   "fieldtype": "Small Text",
    "is_virtual": 1,
    "label": "Deskripsi 123"
   },
@@ -1594,7 +1596,7 @@
   },
   {
    "fieldname": "detail_listing_lamudi",
-   "fieldtype": "Long Text",
+   "fieldtype": "Small Text",
    "is_virtual": 1,
    "label": "Deskripsi lamudi"
   },
@@ -1665,7 +1667,7 @@
   {
    "fieldname": "deskirpsi_properti_lamudi_section",
    "fieldtype": "Section Break",
-   "label": "Deskirpsi Properti Lamudi"
+   "label": "Deskripsi Properti Lamudi"
   },
   {
    "fieldname": "column_break_aeyf",
@@ -1753,6 +1755,18 @@
    "fieldname": "gambar_15",
    "fieldtype": "Attach Image",
    "label": "Gambar 15"
+  },
+  {
+   "fieldname": "copy_deskripsi_r123",
+   "fieldtype": "Button",
+   "is_virtual": 1,
+   "label": "Copy Deskripsi"
+  },
+  {
+   "fieldname": "copy_deskripsi_lamudi",
+   "fieldtype": "Button",
+   "is_virtual": 1,
+   "label": "Copy Deskripsi"
   }
  ],
  "grid_page_length": 50,
@@ -1763,8 +1777,8 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 20,
- "modified": "2026-01-08 12:46:45.391439",
- "modified_by": "sampahtj@gmail.com",
+ "modified": "2026-05-14 01:45:51.360518",
+ "modified_by": "Administrator",
  "module": "Property Agent Listings",
  "name": "Property",
  "naming_rule": "Set by user",

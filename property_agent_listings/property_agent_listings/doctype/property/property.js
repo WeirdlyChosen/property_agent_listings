@@ -710,6 +710,36 @@ frappe.ui.form.on("Property", {
 	},
 });
 
+// Copy to clipboard helper
+// Helper function
+function copyToClipboard(text, message) {
+	if (!text) {
+		frappe.msgprint("No content available.");
+		return;
+	}
+
+	if (navigator.clipboard) {
+		navigator.clipboard.writeText(text).then(() => {
+			frappe.show_alert({
+				message: message,
+				indicator: "green",
+			});
+		});
+	} else {
+		const textarea = document.createElement("textarea");
+		textarea.value = text;
+		document.body.appendChild(textarea);
+		textarea.select();
+		document.execCommand("copy");
+		document.body.removeChild(textarea);
+
+		frappe.show_alert({
+			message: message,
+			indicator: "green",
+		});
+	}
+}
+// Google Drive button
 frappe.ui.form.on("Property", {
 	google_drive_link: function (frm) {
 		if (frm.doc.google_drive_folder) {
@@ -718,6 +748,14 @@ frappe.ui.form.on("Property", {
 		} else {
 			frappe.msgprint("No Google Drive folder set.");
 		}
+	},
+
+	copy_deskripsi_lamudi: function (frm) {
+		copyToClipboard(frm.doc.detail_listing_123, "Lamudi description copied");
+	},
+
+	copy_deskripsi_r123: function (frm) {
+		copyToClipboard(frm.doc.detail_listing_123, "R123 description copied");
 	},
 });
 
