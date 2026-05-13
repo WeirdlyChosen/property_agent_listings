@@ -209,6 +209,7 @@ class Property(WebsiteGenerator):
 
 @frappe.whitelist()
 def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=None):
+	# JS script from pabbly in here: https://connect.pabbly.com/v2/app/workflow/mapping/IjU3NjYwNTY0MDYzNDA0MzU1MjZmNTUzMjUxM2Ei_pc
 	try:
 		# # --- get full request data for logging---
 		# import json
@@ -273,6 +274,23 @@ def update_main_photo(docname=None, filename=None, mainphotolink=None, folderid=
 
 		# --- update Gambar Utama field value ---
 		property_doc.gambar_utama = file_doc.file_url
+
+		# Update gambar_x attachment values
+		request_json = frappe.request.get_json() or {}
+
+		for i in range(1, 16):
+			fieldname = f"gambar_{i}"
+
+			image_url = request_json.get(fieldname)
+
+			# skip if not provided
+			if not image_url:
+				continue
+
+			# directly set Attach Image field value
+			property_doc.set(fieldname, image_url)
+
+		# end of gambar_x loop
 
 		# --- save Property document ---
 		property_doc.save(ignore_permissions=True)
